@@ -1,87 +1,39 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: George
-  Date: 9/18/2019
-  Time: 9:29 AM
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>INDEX</title>
-    <script src="js/vue/vue.js"></script>
+    <style>
+        .bg{
+            background-image: url("/images/background.jpg");
+            background-position: bottom;
+            background-repeat: no-repeat;
+            background-size: 75%;
+        }
+    </style>
+    <script type="text/javascript" src="js/bootstrap4/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap4/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap4/bootstrap.css"/>
 </head>
-<body>
-<h2>INDEX</h2>
-<div id="app">
-    {{ message }}
+<body class="bg">
+<img src="/images/dance_flag.png" class="d-none d-sm-block" style="height: 50%; width: auto; position: absolute; left: 0; bottom: 0" >
+<img src="/images/dance_flag.png" class="d-none d-md-block" style="height: 68%; width: auto; position: absolute; left: 0; bottom: 0" >
+<img src="/images/dance_flag.png" class="d-none d-lg-block" style="height: 82%; width: auto; position: absolute; left: 0; bottom: 0" >
+<img src="/images/dance_flag.png" class="d-none d-xl-block" style="height: 100%; width: auto; position: absolute; left: 0; bottom: 0" >
+<img src="/images/dance_flag_up.png" class="d-none d-sm-block" style="height: 50%; position: absolute; right: 0; top: 0">
+<img src="/images/dance_flag_up.png" class="d-none d-md-block" style="height: 68%; position: absolute; right: 0; top: 0">
+<img src="/images/dance_flag_up.png" class="d-none d-lg-block" style="height: 82%; position: absolute; right: 0; top: 0">
+<img src="/images/dance_flag_up.png" class="d-none d-xl-block" style="height: 100%; position: absolute; right: 0; top: 0">
+<div class="container" style="height: 20%">
+    <div class="row">
+        <div class="col-4">
+            <img src="/images/logo_dance.png" style="height: 125px">
+        </div>
+        <div class="col-8">
+            
+        </div>
+    </div>
 </div>
-<div id="app-2">
-  <span v-bind:title="message">
-    Наведи на меня курсор на пару секунд,
-    чтобы увидеть динамически связанное значение title!
-  </span>
-</div>
-<div id="app-3">
-    <span v-if="seen">Сейчас меня видно</span>
-</div>
-<div id="app-4">
-    <ol>
-        <li v-for="todo in todos">
-            {{ todo.text }}
-        </li>
-    </ol>
-</div>
-<div id="app-5">
-    <p>{{ message }}</p>
-    <button v-on:click="reverseMessage">Перевернуть сообщение</button>
-    <button v-on:click="reverseMessageTwo">Перевернуть сообщение 2</button>
-</div>
-<script>
-    var app5 = new Vue({
-        el: '#app-5',
-        data: {
-            message: 'Привет, Vue.js!'
-        },
-        methods: {
-            reverseMessage: function () {
-                console.log("click");
-                // this.message = this.message.split('').reverse().join('')
-            },
-            reverseMessageTwo: function () {
-                console.log("click two");
-                // this.message = this.message.split('').reverse().join('')
-            }
-        }
-    })
-    var app4 = new Vue({
-        el: '#app-4',
-        data: {
-            todos: [
-                { text: 'Изучить JavaScript' },
-                { text: 'Изучить Vue' },
-                { text: 'Создать что-нибудь классное' }
-            ]
-        }
-    })
-    var app3 = new Vue({
-        el: '#app-3',
-        data: {
-            seen: true
-        }
-    })
-    var app2 = new Vue({
-        el: '#app-2',
-        data: {
-            message: 'Вы загрузили эту страницу: ' + new Date().toLocaleString()
-        }
-    })
-    var app = new Vue({
-        el: '#app',
-        data: {
-            message: 'Вы загрузили эту страницу: ' + new Date().toLocaleString()
-        }
-    })
-</script>
+
 </body>
 </html>

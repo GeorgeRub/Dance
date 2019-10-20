@@ -11,6 +11,6 @@
     <title>Admin</title>
 </head>
 <body>
-
+<h2>ADMIN</h2>
 </body>
 </html>
