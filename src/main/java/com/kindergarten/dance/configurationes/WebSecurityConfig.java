@@ -45,7 +45,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .frameOptions().sameOrigin()
                 .httpStrictTransportSecurity().disable();
         http.exceptionHandling().accessDeniedPage("/403")
-                ;
+        ;
     }
 
 }

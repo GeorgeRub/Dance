@@ -25,12 +25,35 @@
 <img src="/images/dance_flag_up.png" class="d-none d-lg-block" style="height: 82%; position: absolute; right: 0; top: 0">
 <img src="/images/dance_flag_up.png" class="d-none d-xl-block" style="height: 100%; position: absolute; right: 0; top: 0">
 <div class="container" style="height: 20%">
-    <div class="row">
+    <div class="row align-items-end">
         <div class="col-4">
             <img src="/images/logo_dance.png" style="height: 125px">
         </div>
         <div class="col-8">
-            
+            <div class="row">
+                <div class="col-12 align-content-end" style="margin-bottom: 15px">
+                    <span >address</span>
+                </div>
+                <br>
+                <div class="col-12">
+                    <a href="#">Спортивно-бальні танці</a>
+                    <a href="#">Стретчінг</a>
+                    <a href="#">Східні танц</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="row align-items-center" style="height: 50%">
+        <div class="offset-10 col-2">
+bbb
+        </div>
+        <div class="offset-10 col-2 align-self-center">
+bbb
+        </div>
+        <div class="offset-10 col-2 align-self-center">
+bbb
         </div>
     </div>
 </div>
