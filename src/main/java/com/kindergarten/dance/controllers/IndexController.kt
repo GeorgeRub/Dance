@@ -22,4 +22,19 @@ class IndexController {
 //    @ExceptionHandler(NotFoundException.class)
     fun notFound() = "404"
 
+    @RequestMapping("/sport-dance")
+    fun sportDance(): String {
+        return "sportDancing"
+    }
+
+    @RequestMapping("/stretching")
+    fun stretching(): String {
+        return "stretching"
+    }
+
+    @RequestMapping("/eastern-dance")
+    fun easternDance(): String {
+        return "easternDance";
+    }
+
 }

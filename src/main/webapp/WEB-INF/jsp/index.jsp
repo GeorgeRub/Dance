@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -31,14 +30,14 @@
         </div>
         <div class="col-8">
             <div class="row">
-                <div class="col-12 align-content-end" style="margin-bottom: 15px">
+                <div class="col-12 align-content-end text-right" style="margin-bottom: 15px">
                     <span >address</span>
                 </div>
                 <br>
-                <div class="col-12">
-                    <a href="#">Спортивно-бальні танці</a>
-                    <a href="#">Стретчінг</a>
-                    <a href="#">Східні танц</a>
+                <div class="col-12 text-right">
+                    <a href="/sport-dance" class="button">Спортивно-бальні танці</a>
+                    <a href="/stretching" class="button">Стретчінг</a>
+                    <a href="/eastern-dance" class="button">Східні танці</a>
                 </div>
             </div>
 
@@ -46,13 +45,13 @@
 
     </div>
     <div class="row align-items-center" style="height: 50%">
-        <div class="offset-10 col-2">
+        <div class="offset-10 col-2 text-right" >
 bbb
         </div>
-        <div class="offset-10 col-2 align-self-center">
+        <div class="offset-10 col-2 text-right">
 bbb
         </div>
-        <div class="offset-10 col-2 align-self-center">
+        <div class="offset-10 col-2 text-right">
 bbb
         </div>
     </div>

@@ -12,4 +12,5 @@ class IndexAdminController {
         return "admin/index";
     }
 
+
 }
