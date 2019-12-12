@@ -87,4 +87,16 @@ public class User extends BaseEntity {
         this.enabled = enabled;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", name='" + name + '\'' +
+                ", active=" + active +
+                ", role=" + role +
+                ", password='" + password + '\'' +
+                ", enabled=" + enabled +
+                '}';
+    }
 }

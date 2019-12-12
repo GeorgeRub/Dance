@@ -74,9 +74,9 @@ public class BaseEntity implements Serializable {
         return  formatter.format(created);
     }
 
-    @Override
-    public String toString() {
-        return "BaseEntity[created = " +  getCreated()!=null ? getCreated().toString() : "null" + "; updated = " +getUpdated()!=null ?  getUpdated().toString() : "null" + "]";
-    }
+//    @Override
+//    public String toString() {
+//        return "BaseEntity[created = " +  getCreated()!=null ? getCreated().toString() : "null" + "; updated = " +getUpdated()!=null ?  getUpdated().toString() : "null" + "]";
+//    }
 
 }

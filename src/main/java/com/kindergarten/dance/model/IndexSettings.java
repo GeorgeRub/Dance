@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "index_settings")
-public class IndexSettings {
+public class IndexSettings extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "is_id")
