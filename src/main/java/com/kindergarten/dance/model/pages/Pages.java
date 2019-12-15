@@ -24,6 +24,19 @@ public class Pages extends BaseEntity {
     @Column
     private String mainPhoto;
 
+    @Column
+    private String title;
+
+    @Column
+    private String shortTitle;
+
+    @Column
+    private boolean hasScheduler;
+
+    @ManyToOne(targetEntity = Scheduler.class)
+    @JoinColumn(name = "p_id", nullable = false, updatable = false, insertable = false)
+    private Scheduler scheduler;
+
     @OneToMany(mappedBy = "pages", fetch = FetchType.LAZY)
     private List<InnerPagesPhoto> innerPagesPhotos;
 
@@ -65,5 +78,37 @@ public class Pages extends BaseEntity {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getShortTitle() {
+        return shortTitle;
+    }
+
+    public void setShortTitle(String shortTitle) {
+        this.shortTitle = shortTitle;
+    }
+
+    public boolean isHasScheduler() {
+        return hasScheduler;
+    }
+
+    public void setHasScheduler(boolean hasScheduler) {
+        this.hasScheduler = hasScheduler;
+    }
+
+    public Scheduler getScheduler() {
+        return scheduler;
+    }
+
+    public void setScheduler(Scheduler scheduler) {
+        this.scheduler = scheduler;
     }
 }
