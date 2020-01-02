@@ -94,7 +94,7 @@ public class User extends BaseEntity {
                 ", login='" + login + '\'' +
                 ", name='" + name + '\'' +
                 ", active=" + active +
-                ", role=" + role +
+                ", role=" + role.getRole() +
                 ", password='" + password + '\'' +
                 ", enabled=" + enabled +
                 '}';
