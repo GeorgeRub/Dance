@@ -1,0 +1,10 @@
+.shadow{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.bg {
+    background-image: url("/images/background.jpg");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: 75%;
+    z-index: 2000;
+}

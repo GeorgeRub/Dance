@@ -35,7 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests().antMatchers("/", "/css/**", "/kindergarten/**", "/fonts/**", "/js/**", "/header/**",
                 "/images/**", "/resources/**", "/blog/**", "/conception/**", "/gallery/**", "/elective/**", "/advertising/**", "/ru/**",
                 "/eng/**", "/bower_components/**", "/dist/**", "/plugins/**", "/callBack", "/favicon.ico", "/404",
-                "/feature", "/error", "/sport-dance", "/stretching", "/eastern-dance").permitAll()
+                "/feature", "/error", "/school/**", "/sport-dance", "/stretching", "/eastern-dance").permitAll()
                 .antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
                 .anyRequest().authenticated()
                 .and().formLogin().loginPage("/login").permitAll()

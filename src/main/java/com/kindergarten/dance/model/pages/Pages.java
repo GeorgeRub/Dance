@@ -1,12 +1,12 @@
 package com.kindergarten.dance.model.pages;
 
 import com.kindergarten.dance.model.BaseEntity;
+import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "pages")
 public class Pages extends BaseEntity {
 
     @Id
@@ -15,6 +15,7 @@ public class Pages extends BaseEntity {
     private Long id;
 
     @Column
+    @UniqueElements
     private String url;
 
     @Column
@@ -33,9 +34,9 @@ public class Pages extends BaseEntity {
     @Column
     private boolean hasScheduler;
 
-    @ManyToOne(targetEntity = Scheduler.class)
-    @JoinColumn(name = "p_id", nullable = false, updatable = false, insertable = false)
-    private Scheduler scheduler;
+    @ManyToOne
+    @JoinColumn(name = "sched_id")
+    private Schedule schedule;
 
     @OneToMany(mappedBy = "pages", fetch = FetchType.LAZY)
     private List<InnerPagesPhoto> innerPagesPhotos;
@@ -104,11 +105,11 @@ public class Pages extends BaseEntity {
         this.hasScheduler = hasScheduler;
     }
 
-    public Scheduler getScheduler() {
-        return scheduler;
+    public Schedule getSchedule() {
+        return schedule;
     }
 
-    public void setScheduler(Scheduler scheduler) {
-        this.scheduler = scheduler;
+    public void setSchedule(Schedule schedule) {
+        this.schedule = schedule;
     }
 }

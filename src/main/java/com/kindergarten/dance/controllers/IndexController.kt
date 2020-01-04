@@ -1,6 +1,5 @@
 package com.kindergarten.dance.controllers
 
-import com.kindergarten.dance.controllers.admin.MainController
 import com.kindergarten.dance.services.UsersService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
@@ -10,13 +9,15 @@ import org.springframework.web.bind.annotation.RequestMapping
 @Controller
 class IndexController {
 
-
     @Autowired
     lateinit var usersService: UsersService
 
+    @Autowired
+    lateinit var mainController: MainController
+
     @RequestMapping("/")
     fun index(model: Model): String {
-        MainController(model)
+        mainController.addModel(model)
         return "index"
     }
 

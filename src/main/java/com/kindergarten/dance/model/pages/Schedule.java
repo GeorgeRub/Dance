@@ -7,15 +7,15 @@ import java.util.List;
 
 @Entity
 @Table
-public class Scheduler extends BaseEntity {
+public class Schedule extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "sch_id")
+    @Column(name = "sched_id")
     private Long id;
 
     @Column
-    private String group;
+    private String gr;
     @Column
     private String monday;
     @Column
@@ -31,7 +31,7 @@ public class Scheduler extends BaseEntity {
     @Column
     private String sunday;
 
-    @OneToMany(mappedBy="scheduler", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy="schedule")
     private List<Pages> pages;
 
     public Long getId() {
@@ -42,12 +42,12 @@ public class Scheduler extends BaseEntity {
         this.id = id;
     }
 
-    public String getGroup() {
-        return group;
+    public String getGr() {
+        return gr;
     }
 
-    public void setGroup(String group) {
-        this.group = group;
+    public void setGr(String group) {
+        this.gr = group;
     }
 
     public String getMonday() {
@@ -113,4 +113,6 @@ public class Scheduler extends BaseEntity {
     public void setPages(List<Pages> pages) {
         this.pages = pages;
     }
+
+
 }
