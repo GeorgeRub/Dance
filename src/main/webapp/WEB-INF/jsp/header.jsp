@@ -45,8 +45,8 @@
     </div>
     <div class="row">
         <div class="col-12 text-center">
-            <a href="/school/sport-dance" class="button">Спортивно-бальні танці</a>
-            <a href="/school/stretching" class="button">Стретчінг</a>
+            <a href="/school/sport-dance" class="button" style="padding-right: 20px">Спортивно-бальні танці</a>
+            <a href="/school/stretching" class="button" style="padding-right: 20px">Стретчінг</a>
             <a href="/school/eastern-dance" class="button">Східні танці</a>
         </div>
     </div>

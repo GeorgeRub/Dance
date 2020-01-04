@@ -12,9 +12,9 @@
             <c:import url="leftSide.jsp"/>
         </div>
         <div class="col-7">
-
-
-
+            <div>
+                ${page.text}
+            </div>
         </div>
         <div class="col-2 text-center shadow" style="opacity: 75%; background-color: white">
             <c:import url="rightSide.jsp"/>

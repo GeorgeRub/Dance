@@ -4,12 +4,12 @@
 <head>
 </head>
 <body>
-<div style="border-bottom:2px solid #e580ad;">
+<div style="border-bottom:2px solid #e580ad; opacity: 100%">
     Наші тренери
 </div>
 
 <c:forEach items="${coaches}" var="coach">
-    <div>
+    <div style="opacity: 100%">
         <img src="/images/${coach.photo}">
         <br>
             ${coach.name}
@@ -23,8 +23,16 @@
 <div style="border-bottom:2px solid #e580ad;">
     Наш зал
 </div>
-<div>
-
-</div>
+<c:forEach items="${ourHall}" var="coach">
+    <div>
+        <img src="/images/${coach.photo}">
+        <br>
+            ${coach.pre}
+        <br>
+            ${coach.title}
+        <br>
+        <a href="/school/${coach.url}" style="color: #e580ad">Докладніше</a>
+    </div>
+</c:forEach>
 </body>
 </html>
