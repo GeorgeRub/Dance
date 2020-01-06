@@ -4,35 +4,42 @@
 <head>
 </head>
 <body>
-<div style="border-bottom:2px solid #e580ad;">
+<div class="padding-top border-bottom-sides">
     Новини
 </div>
 <c:forEach items="${news}" var="coach">
-    <div style="opacity: 100%">
+    <div class="padding-top">
+        <p class="side-text-align side-text-bold side-text-margin side-text-size">
+                ${coach.pre}
+        </p>
         <img src="/images/${coach.photo}">
         <br>
-            ${coach.pre}
+        <a href="/school/${coach.url}" class="purpure-color right">Докладніше >></a>
         <br>
-        <a href="/school/${coach.url}" style="color: #e580ad">Докладніше</a>
     </div>
 </c:forEach>
-<div style="border-bottom:2px solid #e580ad;">
+<div class="padding-top border-bottom-sides">
     Натхнення
 </div>
 <c:forEach items="${inspirations}" var="coach">
-    <div style="opacity: 100%">
-        <img src="/images/${coach.photo}">
+    <div class="padding-top">
+        <a href="/school/${coach.url}" class="purpure-color">
+            <img src="/images/${coach.photo}">
+        </a>
         <br>
-            ${coach.pre}
-        <br>
-        <a href="/school/${coach.url}" style="color: #e580ad">Докладніше</a>
     </div>
 </c:forEach>
-<div style="border-bottom:2px solid #e580ad;">
+<div class="padding-top border-bottom-sides">
     Вимоги до костюмів
 </div>
 <div>
-
+    <c:forEach items="${costReq}" var="coach">
+        <div class="padding-top">
+            <a href="/school/${coach.url}" class="purpure-color">
+                <img src="/images/${coach.photo}">
+            </a>
+        </div>
+    </c:forEach>
 </div>
 </body>
 </html>

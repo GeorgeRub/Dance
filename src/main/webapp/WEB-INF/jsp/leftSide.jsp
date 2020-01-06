@@ -4,34 +4,40 @@
 <head>
 </head>
 <body>
-<div style="border-bottom:2px solid #e580ad; opacity: 100%">
+<div class="padding-top border-bottom-sides">
     Наші тренери
 </div>
 
 <c:forEach items="${coaches}" var="coach">
-    <div style="opacity: 100%">
+    <div class="padding-top">
         <img src="/images/${coach.photo}">
         <br>
-            ${coach.name}
+        <p class="side-text-align side-text-bold side-text-margin side-text-size">
+                ${coach.name}
+        </p>
+        <p class="side-text-align side-text-margin side-text-size">
+                ${coach.position}
+        </p>
+        <a href="/school/${coach.url}" class="purpure-color right">Докладніше >></a>
         <br>
-            ${coach.position}
-        <br>
-        <a href="/school/${coach.url}" style="color: #e580ad">Докладніше</a>
     </div>
 </c:forEach>
 
-<div style="border-bottom:2px solid #e580ad;">
+<div class="padding-top border-bottom-sides">
     Наш зал
 </div>
 <c:forEach items="${ourHall}" var="coach">
-    <div>
+    <div class="padding-top">
         <img src="/images/${coach.photo}">
         <br>
-            ${coach.pre}
+        <p class="side-text-align side-text-bold side-text-margin side-text-size">
+                ${coach.pre}
+        </p>
+        <p class="side-text-align side-text-margin side-text-size">
+                ${coach.title}
+        </p>
+        <a href="/school/${coach.url}" class="purpure-color right">Докладніше >></a>
         <br>
-            ${coach.title}
-        <br>
-        <a href="/school/${coach.url}" style="color: #e580ad">Докладніше</a>
     </div>
 </c:forEach>
 </body>

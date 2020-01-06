@@ -1,38 +1,33 @@
-package com.kindergarten.dance.controllers;
+package com.kindergarten.dance.controllers
 
-import com.kindergarten.dance.model.IndexSettings;
-import com.kindergarten.dance.model.OurHall;
-import com.kindergarten.dance.services.*;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
+import com.kindergarten.dance.services.*
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Service
+import org.springframework.ui.Model
 
 @Service
-public class MainController {
-
+class MainController {
     @Autowired
-    private IndexSettingsService indexSettingsService;
-
+    lateinit var indexSettingsService: IndexSettingsService
     @Autowired
-    private CoachService coachService;
-
+    lateinit var coachService: CoachService
     @Autowired
-    private OurHallService ourHallService;
-
+    lateinit var ourHallService: OurHallService
     @Autowired
-    private NewsService newsService;
-
+    lateinit var newsService: NewsService
     @Autowired
-    private InspirationService inspirationService;
+    lateinit var inspirationService: InspirationService
+    @Autowired
+    lateinit var costumeRequirementsService: CostumeRequirementsService
 
-    public void addModel(Model model) {
-        IndexSettings settings = indexSettingsService.getFirst();
-        model.addAttribute("phone", settings.getPhone());
-        model.addAttribute("address", settings.getAdress());
-        model.addAttribute("coaches", coachService.getAllActive());
-        model.addAttribute("ourHall", ourHallService.getAllActive());
-        model.addAttribute("news", newsService.getLastTwo());
-        model.addAttribute("inspirations", inspirationService.getLastTwo());
+    fun addModel(model: Model) {
+        val settings = indexSettingsService!!.first
+        model.addAttribute("phone", settings.phone)
+        model.addAttribute("address", settings.adress)
+        model.addAttribute("coaches", coachService!!.allActive)
+        model.addAttribute("ourHall", ourHallService!!.allActive)
+        model.addAttribute("news", newsService!!.lastTwo)
+        model.addAttribute("inspirations", inspirationService!!.lastTwo)
+        model.addAttribute("costReq", costumeRequirementsService!!.findAllActive())
     }
-
 }

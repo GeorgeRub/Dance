@@ -1,28 +1,21 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <script type="text/javascript" src="/js/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap4/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap4/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="/css/bootstrap4/bootstrap.css"/>
     <link rel="stylesheet" href="/css/main.css"/>
 </head>
 <body>
-<img src="/images/dance_flag.png" class="d-none d-sm-block"
-     style="height: 50%; width: auto; position: absolute; left: 0; bottom: 0; z-index: -1">
-<img src="/images/dance_flag.png" class="d-none d-md-block"
-     style="height: 68%; width: auto; position: absolute; left: 0; bottom: 0; z-index: -1">
-<img src="/images/dance_flag.png" class="d-none d-lg-block"
-     style="height: 82%; width: auto; position: absolute; left: 0; bottom: 0; z-index: -1">
-<img src="/images/dance_flag.png" class="d-none d-xl-block"
-     style="height: 100%; width: auto; position: absolute; left: 0; bottom: 0; z-index: -1">
-<img src="/images/dance_flag_up.png" class="d-none d-sm-block"
-     style="height: 50%; position: absolute; right: 0; top: 0; z-index: -1">
-<img src="/images/dance_flag_up.png" class="d-none d-md-block"
-     style="height: 68%; position: absolute; right: 0; top: 0; z-index: -1">
-<img src="/images/dance_flag_up.png" class="d-none d-lg-block"
-     style="height: 82%; position: absolute; right: 0; top: 0; z-index: -1">
-<img src="/images/dance_flag_up.png" class="d-none d-xl-block"
-     style="height: 100%; position: absolute; right: 0; top: 0; z-index: -1">
+<img src="/images/dance_flag.png" class="d-none d-sm-block height-4 fixed-left">
+<img src="/images/dance_flag.png" class="d-none d-md-block height-3 fixed-left">
+<img src="/images/dance_flag.png" class="d-none d-lg-block height-2 fixed-left">
+<img src="/images/dance_flag.png" class="d-none d-xl-block height-1 fixed-left">
+<img src="/images/dance_flag_up.png" class="d-none d-sm-block height-4 fixed-right">
+<img src="/images/dance_flag_up.png" class="d-none d-md-block height-3 fixed-right">
+<img src="/images/dance_flag_up.png" class="d-none d-lg-block height-2 fixed-right">
+<img src="/images/dance_flag_up.png" class="d-none d-xl-block height-1 fixed-right">
 <div class="container" style="height: 20%">
     <div class="row align-items-end" style="border-bottom:2px solid #e580ad; z-index: 1 ">
         <div class="col-4">

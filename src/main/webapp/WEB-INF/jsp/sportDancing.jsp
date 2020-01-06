@@ -8,7 +8,7 @@
 <c:import url="header.jsp"/>
 <div class="container">
     <div class="row">
-        <div class="col-2 text-center shadow" style="opacity: 75%; background-color: white">
+        <div class="col-2 text-center shadow sides">
             <c:import url="leftSide.jsp"/>
         </div>
         <div class="col-7">
@@ -16,10 +16,12 @@
                 ${page.text}
             </div>
         </div>
-        <div class="col-2 text-center shadow" style="opacity: 75%; background-color: white">
+        <div class="col-2 text-center shadow sides" >
             <c:import url="rightSide.jsp"/>
         </div>
-        <div class="col-1" style="opacity: 75%"><c:import url="social.jsp"/></div>
+        <div class="col-1 " >
+            <c:import url="social.jsp"/>
+        </div>
     </div>
 </div>
 </body>

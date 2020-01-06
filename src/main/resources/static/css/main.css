@@ -1,10 +1,83 @@
-.shadow{
+.shadow {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
 .bg {
     background-image: url("/images/background.jpg");
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: 75%;
     z-index: 2000;
+}
+
+.padding-top {
+    padding-top: 20px;
+}
+
+.margin-top-side {
+    margin-top: 20px;
+}
+
+.sides {
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+.purpure-color {
+    color: #e580ad;
+}
+
+.right {
+    float: right;
+}
+
+.border-bottom-sides {
+    border-bottom: 2px solid #e580ad !important;
+}
+
+.fixed-left {
+    width: auto;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.fixed-right {
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: -1;
+}
+
+.height-4{
+    height: 50%;
+}
+
+.height-3{
+    height: 68%;
+}
+
+.height-2{
+    height: 82%;
+}
+
+.height-1{
+    height: 100%;
+}
+
+.side-text-align{
+    text-align: left;
+}
+
+.side-text-bold{
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+.side-text-margin{
+    margin-bottom: 0px;
+}
+
+.side-text-size{
+    font-size: 15px;
 }
