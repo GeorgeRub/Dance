@@ -19,6 +19,8 @@ class MainController {
     lateinit var inspirationService: InspirationService
     @Autowired
     lateinit var costumeRequirementsService: CostumeRequirementsService
+    @Autowired
+    lateinit var videoService: VideoService
 
     fun addModel(model: Model) {
         val settings = indexSettingsService!!.first
@@ -29,5 +31,6 @@ class MainController {
         model.addAttribute("news", newsService!!.lastTwo)
         model.addAttribute("inspirations", inspirationService!!.lastTwo)
         model.addAttribute("costReq", costumeRequirementsService!!.findAllActive())
+        model.addAttribute("video", videoService.findAllActive())
     }
 }
