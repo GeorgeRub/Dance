@@ -9,10 +9,17 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <table>
+            <div>
+                <a href="/admin/pages/create">Додати нову сторінку</a>
+            </div>
+        </div>
+        <div class="col-12">
+            <table border="1">
                 <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Title</th>
+                    <th>URL</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -20,6 +27,8 @@
                 <c:forEach items="${pagesList}" var="page">
                     <tr>
                         <td>${page.id}</td>
+                        <td>${page.title}</td>
+                        <td>${page.url}</td>
                         <td><a href="/admin/pages/edit/${page.id}">Редагувати</a> </td>
                     </tr>
                 </c:forEach>

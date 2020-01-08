@@ -1,6 +1,7 @@
 package com.kindergarten.dance.model.pages;
 
 import com.kindergarten.dance.model.BaseEntity;
+import com.kindergarten.dance.model.PageCategory;
 import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;
@@ -14,8 +15,7 @@ public class Pages extends BaseEntity {
     @Column(name = "p_id")
     private Long id;
 
-    @Column
-    @UniqueElements
+    @Column(unique = true)
     private String url;
 
     @Column
@@ -34,9 +34,22 @@ public class Pages extends BaseEntity {
     @Column
     private boolean hasScheduler;
 
+    @Column
+    private String category;
+
+    @Column
+    private String smallPhoto;
+
+    @Column
+    private String pre;
+
     @ManyToOne
     @JoinColumn(name = "sched_id")
     private Schedule schedule;
+
+    @ManyToOne
+    @JoinColumn(name = "pc_id")
+    private PageCategory pageCategory;
 
     @OneToMany(mappedBy = "pages", fetch = FetchType.LAZY)
     private List<InnerPagesPhoto> innerPagesPhotos;
@@ -111,5 +124,52 @@ public class Pages extends BaseEntity {
 
     public void setSchedule(Schedule schedule) {
         this.schedule = schedule;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getSmallPhoto() {
+        return smallPhoto;
+    }
+
+    public void setSmallPhoto(String smallPhoto) {
+        this.smallPhoto = smallPhoto;
+    }
+
+    public String getPre() {
+        return pre;
+    }
+
+    public void setPre(String pre) {
+        this.pre = pre;
+    }
+
+    public PageCategory getPageCategory() {
+        return pageCategory;
+    }
+
+    public void setPageCategory(PageCategory pageCategory) {
+        this.pageCategory = pageCategory;
+    }
+
+    @Override
+    public String toString() {
+        return "Pages{" +
+                "id=" + id +
+                ", url='" + url + '\'' +
+                ", text='" + text + '\'' +
+                ", mainPhoto='" + mainPhoto + '\'' +
+                ", title='" + title + '\'' +
+                ", shortTitle='" + shortTitle + '\'' +
+                ", hasScheduler=" + hasScheduler +
+                ", schedule=" + schedule +
+                ", category=" + category +
+                '}';
     }
 }
