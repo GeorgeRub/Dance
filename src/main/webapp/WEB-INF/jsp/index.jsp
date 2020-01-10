@@ -3,14 +3,13 @@
 <html>
 <head>
     <title>INDEX</title>
+<%--    <meta name="description" content="${page.description}">--%>
+<%--    <meta name="keywords" content="${page.keyWords}">--%>
 </head>
 <body class="bg">
 <c:import url="header.jsp"/>
 <div class="container">
     <div class="row">
-<%--        <div class="col-2">Наші тренери</div>--%>
-<%--        <div class="col-7">Центер</div>--%>
-<%--        <div class="col-2">Новини</div>--%>
         <div class="offset-11 col-1">
             <c:import url="social.jsp"/>
         </div>

@@ -29,6 +29,12 @@ public class Pages extends BaseEntity {
     private String title;
 
     @Column
+    private String description;
+
+    @Column
+    private String keyWords;
+
+    @Column
     private String shortTitle;
 
     @Column
@@ -156,6 +162,22 @@ public class Pages extends BaseEntity {
 
     public void setPageCategory(PageCategory pageCategory) {
         this.pageCategory = pageCategory;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getKeyWords() {
+        return keyWords;
+    }
+
+    public void setKeyWords(String keyWords) {
+        this.keyWords = keyWords;
     }
 
     @Override

@@ -21,35 +21,39 @@
 </head>
 <body class="hold-transition login-page">
 <c:import url="header.jsp"/>
-<div class="login-box">
+<div class="container">
 
-    <div class="login-box-body">
-        <p class="login-box-msg">Sign in to start your session</p>
+    <div class="login-box">
 
-        <form action="${contextPath}/login" method="post">
-            <div class="form-group ${error != null ? 'has-error' : ''}">
-                <span>${message}</span>
-                <div class="form-group has-feedback">
-                    <input name="username" type="email" class="form-control" placeholder="Username"
-                           autofocus="true"/>
-                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        <div class="login-box-body">
+            <p class="login-box-msg">Sign in to start your session</p>
+
+            <form action="${contextPath}/login" method="post">
+                <div class="form-group ${error != null ? 'has-error' : ''}">
+                    <span>${message}</span>
+                    <div class="form-group has-feedback">
+                        <input name="username" type="email" class="form-control" placeholder="Username"
+                               autofocus="true"/>
+                        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <input name="password" type="password" class="form-control" placeholder="Password"/>
+                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    </div>
+
+                    <span>${error}</span>
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
                 </div>
-                <div class="form-group has-feedback">
-                    <input name="password" type="password" class="form-control" placeholder="Password"/>
-                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                </div>
+            </form>
 
-                <span>${error}</span>
-                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
-            </div>
-        </form>
-
+        </div>
+        <!-- /.login-box-body -->
     </div>
-    <!-- /.login-box-body -->
+    <!-- /.login-box -->
 </div>
-<!-- /.login-box -->
+
 
 <!-- jQuery 3 -->
 <%--<script src="../../bower_components/jquery/dist/jquery.min.js"></script>--%>

@@ -18,6 +18,7 @@
                 <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Category</th>
                     <th>Title</th>
                     <th>URL</th>
                     <th></th>
@@ -27,9 +28,10 @@
                 <c:forEach items="${pagesList}" var="page">
                     <tr>
                         <td>${page.id}</td>
+                        <td>${page.pageCategory.ukrName}</td>
                         <td>${page.title}</td>
                         <td>${page.url}</td>
-                        <td><a href="/admin/pages/edit/${page.id}">Редагувати</a> </td>
+                        <td><a href="/admin/pages/edit/${page.id}" class="btn btn-light">Редагувати</a> </td>
                     </tr>
                 </c:forEach>
                 </tbody>

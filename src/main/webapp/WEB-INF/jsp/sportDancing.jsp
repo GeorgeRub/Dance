@@ -3,6 +3,8 @@
 <html>
 <head>
     <title>${page.title}</title>
+    <meta name="description" content="${page.description}">
+    <meta name="keywords" content="${page.keyWords}">
     <link rel="stylesheet" href="/css/carousel/carousel.css"/>
 </head>
 <body>

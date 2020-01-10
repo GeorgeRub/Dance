@@ -3,6 +3,7 @@ package com.kindergarten.dance.services;
 import com.kindergarten.dance.model.pages.Pages;
 import com.kindergarten.dance.repositories.PagesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -36,9 +37,27 @@ public class PagesService {
     }
 
     public List<Pages> getAllActiveCoaches(){
-        return pagesRepository.getAllActiveCoaches();
+        System.out.println("getAllActiveCoaches OK");
+        return pagesRepository.getAllActiveByCat(1l);
     }
+
     public List<Pages> getAllActiveOurHall(){
-        return pagesRepository.getAllActiveOurHall();
+        System.out.println("getAllActiveOurHall OK");
+        return pagesRepository.getAllActiveByCat(5l);
+    }
+
+    public List<Pages> getAllActiveInspirations(){
+        System.out.println("getAllActiveInspirations OK");
+        return pagesRepository.getAllActiveByCat(6l);
+    }
+
+    public List<Pages> findAllActiveCostumeRequirements(){
+        System.out.println("getAllActiveInspirations OK");
+        return pagesRepository.getAllActiveByCat(2l);
+    }
+
+    public List<Pages> getAllActiveNewslastTwo(){
+        System.out.println("getAllActiveNewslastTwo OK");
+        return pagesRepository.getAllActiveNewslastTwo(new PageRequest(0,2));
     }
 }

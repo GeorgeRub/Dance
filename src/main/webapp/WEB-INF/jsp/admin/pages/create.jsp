@@ -17,7 +17,6 @@
                         <td>URL</td>
                         <td><input type="text" name="url" maxlength="100" size="50" value="${page.url}">
                         <input name="id" value="${page.id}" type="hidden">
-<%--                        <input name="pageCategory.id" value="${page.pageCategory.id}" type="hidden">--%>
                         <input name="smallPhoto" value="${page.smallPhoto}" type="hidden">
                         </td>
                     </tr>
@@ -26,10 +25,12 @@
                         <td><input type="text" name="title" maxlength="100" size="50" value="${page.title}"></td>
                     </tr>
                     <tr>
-                        <td>Text</td>
-                        <td>
-
-                        </td>
+                        <td>Description</td>
+                        <td><input type="text" name="description" maxlength="100" size="50" value="${page.description}"></td>
+                    </tr>
+                    <tr>
+                        <td>Key words</td>
+                        <td><input type="text" name="keyWords" maxlength="100" size="50" value="${page.keyWords}"></td>
                     </tr>
                     <tr>
                         <td>Text</td>
