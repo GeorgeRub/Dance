@@ -3,11 +3,31 @@
 }
 
 .bg {
-    background-image: url("/images/background.jpg");
+    /*background-image:  url("/images/background.jpg");*/
+    /*background-color: grey;*/
     background-position: bottom;
     background-repeat: no-repeat;
-    background-size: 75%;
+    background-size: 50%;
+
+    /*-webkit-filter: grayscale(100%); !* Safari 6.0 - 9.0 *!*/
+    /*filter: grayscale(100%);*/
     z-index: 2000;
+}
+
+
+.filter{
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
+
+img.background {
+    -webkit-filter: blur(35px); /* Safari */
+    filter: blur(35px);
+}
+
+.black-white{
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
 }
 
 .padding-top {

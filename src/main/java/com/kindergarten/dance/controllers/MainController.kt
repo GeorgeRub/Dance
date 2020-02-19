@@ -10,16 +10,6 @@ class MainController {
     @Autowired
     lateinit var indexSettingsService: IndexSettingsService
     @Autowired
-    lateinit var coachService: CoachService
-    @Autowired
-    lateinit var ourHallService: OurHallService
-    @Autowired
-    lateinit var newsService: NewsService
-    @Autowired
-    lateinit var inspirationService: InspirationService
-    @Autowired
-    lateinit var costumeRequirementsService: CostumeRequirementsService
-    @Autowired
     lateinit var videoService: VideoService
     @Autowired
     lateinit var pagesService: PagesService

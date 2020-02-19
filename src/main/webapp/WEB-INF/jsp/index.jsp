@@ -3,18 +3,17 @@
 <html>
 <head>
     <title>INDEX</title>
-<%--    <meta name="description" content="${page.description}">--%>
-<%--    <meta name="keywords" content="${page.keyWords}">--%>
+    <%--    <meta name="description" content="${page.description}">--%>
+    <%--    <meta name="keywords" content="${page.keyWords}">--%>
 </head>
 <body class="bg">
 <c:import url="header.jsp"/>
-<div class="container">
-    <div class="row">
-        <div class="offset-11 col-1">
-            <c:import url="social.jsp"/>
-        </div>
+
+<div class="">
+    <div class="container">
+<%--        <img src="/images/background.jpg" class="filter " style=" width: 100%">--%>
+
     </div>
 </div>
-
 </body>
 </html>
