@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/css/main.css"/>
 </head>
 <body>
-<div class="container-fluid" style="height: 20%">
+<div class="container" style="background-color: white">
     <div class="row align-items-end" style="/*border-bottom:2px solid #e580ad;*/ z-index: 1 ">
         <div class="offset-1 col-3">
             <a href="/">
@@ -24,6 +24,10 @@
                     <span style="color: #e580ad; font-size: 20px">${phone}</span>
                     <br>
                     <span>${address}</span>
+                    <br>
+                    <img src="/images/in.png">
+                    <img src="/images/vb.png">
+                    <img src="/images/fb.png">
                 </div>
             </div>
         </div>
