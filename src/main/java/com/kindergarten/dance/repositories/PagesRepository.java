@@ -28,4 +28,7 @@ public interface PagesRepository extends JpaRepository<Pages, Long> {
 
     @Query("select n from  Pages n where n.deleted = false and n.pageCategory.id = 4 order by n.id desc ")
     List<Pages> getAllActiveNewslastTwo(Pageable pageable);
+
+    @Query("select p from Pages p where p.deleted = false  and p.showOnIndex = true")
+    List<Pages> findAllForIndex();
 }

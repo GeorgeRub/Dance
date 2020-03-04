@@ -27,6 +27,10 @@ public class PagesService {
         return pagesRepository.getOne(id);
     }
 
+    public List<Pages> findAllForIndex(){
+        return pagesRepository.findAllForIndex();
+    }
+
     @Transactional
     public Pages update(Pages page) {
         return pagesRepository.saveAndFlush(page);

@@ -16,24 +16,46 @@
                     <tr>
                         <td>URL</td>
                         <td><input type="text" name="url" maxlength="100" size="50" value="${page.url}">
-                        <input name="id" value="${page.id}" type="hidden">
-                        <input name="smallPhoto" value="${page.smallPhoto}" type="hidden">
+                            <input name="id" value="${page.id}" type="hidden">
+                            <input name="smallPhoto" value="${page.smallPhoto}" type="hidden">
                         </td>
                     </tr>
                     <tr>
-                        <td>Title</td>
+                        <td>Заголовок SEO</td>
                         <td><input type="text" name="title" maxlength="100" size="50" value="${page.title}"></td>
                     </tr>
                     <tr>
-                        <td>Description</td>
-                        <td><input type="text" name="description" maxlength="100" size="50" value="${page.description}"></td>
+                        <td>Опис SEO</td>
+                        <td><input type="text" name="description" maxlength="100" size="50" value="${page.description}">
+                        </td>
                     </tr>
                     <tr>
-                        <td>Key words</td>
+                        <td>Ключові слова SEO</td>
                         <td><input type="text" name="keyWords" maxlength="100" size="50" value="${page.keyWords}"></td>
                     </tr>
                     <tr>
-                        <td>Text</td>
+                        <td>Заголовок</td>
+                        <td><input type="text" name="shortTitle" maxlength="100" size="50" value="${page.shortTitle}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="showOnIndex">Показувати на головній сторінці</label></td>
+                        <td><input id="showOnIndex" type="checkbox" name="showOnIndex"
+                                   <c:if test="${page.showOnIndex}">checked</c:if>/></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Фото для головної сторінці
+                        </td>
+                        <td>
+                            <input type="hidden" name="smallPhoto" maxlength="100" size="50" value="${page.smallPhoto}">
+                            <label for="uploadFile">Виберіть фото</label>
+                            <input id="uploadFile" type="file" name="image" multiple
+                                   class="form-control"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Текст</td>
                         <td>
                             <select name="pageCategory.id">
                                 <option value="0">----SELECT ROLE----</option>
@@ -63,12 +85,12 @@
                     </p>
                 </div>
                 <div>
-                    <label for="enable">Delite</label>
+                    <label for="enable">Видалити</label>
                     <input id="enable" type="checkbox" name="deleted"
-                           <c:if test="${page.deleted}">checked</c:if>
+                           <c:if test="${page.deleted}">checked</c:if>/>
                 </div>
                 <p>
-                    <input type="submit" value="Create">
+                    <input type="submit" value="Зберегти">
                 </p>
             </form>
         </div>

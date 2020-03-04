@@ -1,5 +1,6 @@
 package com.kindergarten.dance.controllers
 
+import com.kindergarten.dance.services.PagesService
 import com.kindergarten.dance.services.SettingsService
 import com.kindergarten.dance.services.UsersService
 import org.springframework.beans.factory.annotation.Autowired
@@ -18,10 +19,13 @@ class IndexController {
 
     @Autowired
     lateinit var settingsService: SettingsService
+    @Autowired
+    lateinit var pagesService: PagesService
 
     @RequestMapping("/")
     fun index(model: Model): String {
         mainController.addModel(model)
+        model.addAttribute("ways", pagesService.findAllForIndex())
         model.addAttribute("image", settingsService.returnValueByName("RESOURCES_FOLDER"))
         return "index"
     }

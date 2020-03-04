@@ -17,6 +17,11 @@ public class Settings extends BaseEntity {
     @Column(name = "val")
     private String val;
 
+    @Column(name = "width")
+    private Integer width;
+    @Column(name = "height")
+    private Integer height;
+
     public Settings() {
     }
 
@@ -42,5 +47,32 @@ public class Settings extends BaseEntity {
 
     public void setVal(String val) {
         this.val = val;
+    }
+
+    public Integer getWidth() {
+        return width;
+    }
+
+    public void setWidth(Integer width) {
+        this.width = width;
+    }
+
+    public Integer getHeight() {
+        return height;
+    }
+
+    public void setHeight(Integer height) {
+        this.height = height;
+    }
+
+    @Override
+    public String toString() {
+        return "Settings{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", val='" + val + '\'' +
+                ", width=" + width +
+                ", height=" + height +
+                '}';
     }
 }

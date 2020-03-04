@@ -1,3 +1,28 @@
+
+
+h1 {
+    color: #BB2759 !important;
+    font-size: 24px !important;
+    font-weight: bold !important;
+}
+h2 {
+    color: #BB2759 !important;
+    font-size: 18px !important;
+}
+h3 {
+    /*color: #BB2759 !important;*/
+    font-size: 24px !important;
+}
+
+h4{
+
+}
+
+h5{
+
+}
+
+
 .shadow {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

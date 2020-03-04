@@ -49,6 +49,9 @@ public class Pages extends BaseEntity {
     @Column
     private String pre;
 
+    @Column(name = "show_on_index", columnDefinition = "boolean default false")
+    private boolean showOnIndex;
+
     @ManyToOne
     @JoinColumn(name = "sched_id")
     private Schedule schedule;
@@ -178,6 +181,14 @@ public class Pages extends BaseEntity {
 
     public void setKeyWords(String keyWords) {
         this.keyWords = keyWords;
+    }
+
+    public boolean isShowOnIndex() {
+        return showOnIndex;
+    }
+
+    public void setShowOnIndex(boolean showOnIndex) {
+        this.showOnIndex = showOnIndex;
     }
 
     @Override
