@@ -2,7 +2,6 @@ package com.kindergarten.dance.model.pages;
 
 import com.kindergarten.dance.model.BaseEntity;
 import com.kindergarten.dance.model.PageCategory;
-import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;
 import java.util.List;
@@ -190,6 +189,8 @@ public class Pages extends BaseEntity {
     public void setShowOnIndex(boolean showOnIndex) {
         this.showOnIndex = showOnIndex;
     }
+
+
 
     @Override
     public String toString() {

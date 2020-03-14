@@ -6,7 +6,7 @@
 
 </head>
 <body>
-<c:import url="../adminHeader.jsp"/>
+<c:import url="../pagesPart/adminHeader.jsp"/>
 <div class="container">
     <div class="row">
         <div class="col-12">
@@ -45,12 +45,33 @@
                     </tr>
                     <tr>
                         <td>
+                           Головне фото статті
+                        </td>
+                        <td>
+                            <img src="/images/page/${page.id}/200x200/${page.mainPhoto}"/>
+                            <label for="uploadFileMain">Виберіть фото</label>
+                            <input id="uploadFileMain" type="file" name="mainPhotoHtml"
+                                   class="form-control"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
                             Фото для головної сторінці
                         </td>
                         <td>
-                            <input type="hidden" name="smallPhoto" maxlength="100" size="50" value="${page.smallPhoto}">
+                            <img src="/images/page/${page.id}/200x200/${page.innerPagesPhotos}"/>
                             <label for="uploadFile">Виберіть фото</label>
-                            <input id="uploadFile" type="file" name="image" multiple
+                            <input id="uploadFile" type="file" name="indexPhotoHtml"
+                                   class="form-control"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Фото для статті
+                        </td>
+                        <td>
+                            <label for="uploadFileText">Виберіть фото</label>multiple
+                            <input id="uploadFileText" type="file" name="textPhotoHtml" multiple
                                    class="form-control"/>
                         </td>
                     </tr>

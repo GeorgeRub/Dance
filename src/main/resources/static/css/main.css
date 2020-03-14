@@ -1,34 +1,54 @@
 
-
 h1 {
     color: #BB2759 !important;
     font-size: 24px !important;
     font-weight: bold !important;
 }
+
 h2 {
     color: #BB2759 !important;
     font-size: 18px !important;
 }
+
 h3 {
     /*color: #BB2759 !important;*/
     font-size: 24px !important;
 }
 
-h4{
+h4 {
 
 }
 
-h5{
+h5 {
 
 }
 
+img {
+    padding: 10px;
+    background-color: rgba(203, 203, 203, 0);
+}
 
 .shadow {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.contacts {
+    color: #e580ad;
+    font-size: 20px;
+}
+
+.coach-index-background {
+    background-color: #cbcbcb;
+    margin-bottom: 15px;
+}
+
+.main-index-image {
+    width: 100%;
+    padding: 0px;
+}
+
 .bg {
-    background-image:  url("/images/dance-white.png");
+    background-image: url("/images/dance-white.png");
     background-size: 100%;
     /*background-color: grey;*/
     /*background-position: bottom;*/
@@ -41,7 +61,7 @@ h5{
 }
 
 
-.filter{
+.filter {
     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
     filter: grayscale(100%);
 }
@@ -51,7 +71,7 @@ img.background {
     filter: blur(35px);
 }
 
-.black-white{
+.black-white {
     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
     filter: grayscale(100%);
 }
@@ -95,35 +115,35 @@ img.background {
     z-index: -1;
 }
 
-.height-4{
+.height-4 {
     height: 50%;
 }
 
-.height-3{
+.height-3 {
     height: 68%;
 }
 
-.height-2{
+.height-2 {
     height: 82%;
 }
 
-.height-1{
+.height-1 {
     height: 100%;
 }
 
-.side-text-align{
+.side-text-align {
     text-align: left;
 }
 
-.side-text-bold{
+.side-text-bold {
     font-weight: bold;
     margin-bottom: 0px;
 }
 
-.side-text-margin{
+.side-text-margin {
     margin-bottom: 0px;
 }
 
-.side-text-size{
+.side-text-size {
     font-size: 15px;
 }

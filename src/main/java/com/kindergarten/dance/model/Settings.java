@@ -1,7 +1,15 @@
 package com.kindergarten.dance.model;
 
 
+import com.google.gson.Gson;
+
+import java.lang.reflect.Type;
+
+import com.google.gson.reflect.TypeToken;
+import com.kindergarten.dance.wrappers.ImageSizeWrapper;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "sett")
@@ -17,10 +25,13 @@ public class Settings extends BaseEntity {
     @Column(name = "val")
     private String val;
 
-    @Column(name = "width")
-    private Integer width;
-    @Column(name = "height")
-    private Integer height;
+    @Column(name = "main_photo")
+    private String mainPhoto;
+    @Column(name = "text_photo")
+    private String textPhoto;
+    @Column(name = "index_photo")
+    private String indexPhoto;
+
 
     public Settings() {
     }
@@ -49,20 +60,79 @@ public class Settings extends BaseEntity {
         this.val = val;
     }
 
-    public Integer getWidth() {
-        return width;
+    public String getMainPhoto() {
+        return mainPhoto;
     }
 
-    public void setWidth(Integer width) {
-        this.width = width;
+    public List<ImageSizeWrapper> getMainPhotoWrapper() {
+        if (mainPhoto != null && mainPhoto.length() > 1) {
+            Type itemsListType = new TypeToken<List<ImageSizeWrapper>>() {
+            }.getType();
+            return new Gson().fromJson(mainPhoto, itemsListType);
+        }
+        return null;
     }
 
-    public Integer getHeight() {
-        return height;
+    public void setMainPhoto(String mainPhoto) {
+        this.mainPhoto = mainPhoto;
     }
 
-    public void setHeight(Integer height) {
-        this.height = height;
+    public void setMainPhoto(List<ImageSizeWrapper> mainPhoto) {
+        if (mainPhoto != null) {
+            this.mainPhoto = new Gson().toJson(mainPhoto);
+        } else {
+            this.mainPhoto = null;
+        }
+    }
+
+    public String getTextPhoto() {
+        return textPhoto;
+    }
+
+    public List<ImageSizeWrapper> getTextPhotoWrapper() {
+        if (textPhoto != null && textPhoto.length() > 1) {
+            Type itemsListType = new TypeToken<List<ImageSizeWrapper>>() {
+            }.getType();
+            return new Gson().fromJson(textPhoto, itemsListType);
+        }
+        return null;
+    }
+
+    public void setTextPhoto(String textPhoto) {
+        this.textPhoto = textPhoto;
+    }
+
+    public void setTextPhoto(List<ImageSizeWrapper> textPhoto) {
+        if (textPhoto != null) {
+            this.textPhoto = new Gson().toJson(textPhoto);
+        } else {
+            this.textPhoto = null;
+        }
+    }
+
+    public String getIndexPhoto() {
+        return indexPhoto;
+    }
+
+    public List<ImageSizeWrapper> getIndexPhotoWrapper() {
+        if (indexPhoto != null && indexPhoto.length() > 1) {
+            Type itemsListType = new TypeToken<List<ImageSizeWrapper>>() {
+            }.getType();
+            return new Gson().fromJson(indexPhoto, itemsListType);
+        }
+        return null;
+    }
+
+    public void setIndexPhoto(String indexPhoto) {
+        this.indexPhoto = indexPhoto;
+    }
+
+    public void setIndexPhoto(List<ImageSizeWrapper> indexPhoto) {
+        if (indexPhoto != null) {
+            this.indexPhoto = new Gson().toJson(indexPhoto);
+        } else {
+            this.indexPhoto = null;
+        }
     }
 
     @Override
@@ -71,8 +141,9 @@ public class Settings extends BaseEntity {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", val='" + val + '\'' +
-                ", width=" + width +
-                ", height=" + height +
+                ", mainPhoto='" + mainPhoto + '\'' +
+                ", textPhoto='" + textPhoto + '\'' +
+                ", indexPhoto='" + indexPhoto + '\'' +
                 '}';
     }
 }

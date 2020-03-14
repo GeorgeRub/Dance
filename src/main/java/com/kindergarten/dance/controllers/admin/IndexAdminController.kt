@@ -14,7 +14,6 @@ class IndexAdminController {
 
     @RequestMapping("/")
     fun index(): String {
-        println(usersService.allUsers);
         return "admin/index";
     }
 

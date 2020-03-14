@@ -11,14 +11,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FolderUtils {
+
     @Autowired
     SettingsService settingsService;
 
-//    private String folder = settingsService.returnValueByName("UPLOADED_FOLDER");
-
     public FolderUtils() {
         List<Settings> settingsList = settingsService.getAll();
-        if(settingsList != null && !settingsList.isEmpty()){
+        if (settingsList != null && !settingsList.isEmpty()) {
             List<Path> pathList = new ArrayList<>();
             settingsList.forEach(n -> pathList.add(Paths.get(n.getVal())));
             fixListOfFolderPath(pathList);
@@ -33,7 +32,16 @@ public class FolderUtils {
         return false;
     }
 
+    public void fixFolderPath(String path) {
+        String directoryName = path.concat(this.getClass().getName());
+        File directoryFile = new File(directoryName);
+        if (!directoryFile.exists()) {
+            directoryFile.mkdir();
+        }
+    }
+
     public static boolean fixFolderPath(Path path) {
+//        System.out.println("fixFolderPath " + path.toString());
         try {
             File folderFix = new File(path.toString());
             if (!folderFix.exists()) {
@@ -46,12 +54,5 @@ public class FolderUtils {
         return false;
     }
 
-//    public String getFolder() {
-//        return folder;
-//    }
-//
-//    public void setFolder(String folder) {
-//        this.folder = folder;
-//    }
 
 }

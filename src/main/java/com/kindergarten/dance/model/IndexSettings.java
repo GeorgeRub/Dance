@@ -15,6 +15,12 @@ public class IndexSettings extends BaseEntity {
 
     @Column
     private String phone;
+    @Column
+    private String telegram;
+    @Column
+    private String viber;
+    @Column
+    private String facebook;
 
     public Long getId() {
         return id;
@@ -38,5 +44,29 @@ public class IndexSettings extends BaseEntity {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getTelegram() {
+        return telegram;
+    }
+
+    public void setTelegram(String telegram) {
+        this.telegram = telegram;
+    }
+
+    public String getViber() {
+        return viber;
+    }
+
+    public void setViber(String viber) {
+        this.viber = viber;
+    }
+
+    public String getFacebook() {
+        return facebook;
+    }
+
+    public void setFacebook(String facebook) {
+        this.facebook = facebook;
     }
 }

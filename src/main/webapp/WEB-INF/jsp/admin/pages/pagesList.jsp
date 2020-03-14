@@ -5,7 +5,7 @@
     <title>Список сторінок</title>
 </head>
 <body>
-<c:import url="../adminHeader.jsp"/>
+<c:import url="../pagesPart/adminHeader.jsp"/>
 <div class="container">
     <div class="row">
         <div class="col-12">

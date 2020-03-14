@@ -24,4 +24,8 @@ public class SettingsService {
     public List<Settings> getAll() {
         return settingsRepository.findAll();
     }
+
+    public Settings findById(Long id){
+        return settingsRepository.getOne(id);
+    }
 }

@@ -31,6 +31,10 @@ public class PagesService {
         return pagesRepository.findAllForIndex();
     }
 
+    public List<Pages> findAllCoaches(){
+        return pagesRepository.findAllCoaches();
+    }
+
     @Transactional
     public Pages update(Pages page) {
         return pagesRepository.saveAndFlush(page);

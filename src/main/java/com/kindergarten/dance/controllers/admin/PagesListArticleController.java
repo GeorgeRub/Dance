@@ -1,6 +1,8 @@
 package com.kindergarten.dance.controllers.admin;
 
+import com.kindergarten.dance.model.pages.InnerPagesPhoto;
 import com.kindergarten.dance.model.pages.Pages;
+import com.kindergarten.dance.services.InnerPagesPhotoService;
 import com.kindergarten.dance.services.PageCategoryService;
 import com.kindergarten.dance.services.PagesService;
 import com.kindergarten.dance.utils.FileUtils;
@@ -12,6 +14,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 @RequestMapping("/admin/pages")
 public class PagesListArticleController {
@@ -21,8 +26,12 @@ public class PagesListArticleController {
 
     @Autowired
     private PageCategoryService pageCategoryService;
+
     @Autowired
     private ImageUtils imageUtils;
+
+    @Autowired
+    private InnerPagesPhotoService innerPagesPhotoService;
 
     @RequestMapping("/list")
     public String pagesList(Model model) {
@@ -34,7 +43,6 @@ public class PagesListArticleController {
     public String editPage(Model model, @PathVariable("pageId") Long pageId) {
         Pages page = pagesService.find(pageId);
         if (page != null) {
-//            System.out.println(page);
             model.addAttribute("page", page);
             model.addAttribute("categories", pageCategoryService.findAll());
             return "admin/pages/create";
@@ -50,12 +58,47 @@ public class PagesListArticleController {
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String savePage(@ModelAttribute Pages page, Model model, @RequestParam("image") MultipartFile image) {
-        if (image != null && image.getOriginalFilename().length() > 2) {
-            if (imageUtils.saveImage(image, "PAGE_FOLDER")) {
-                page.setSmallPhoto(image.getOriginalFilename());
+    public String savePage(@ModelAttribute Pages page, Model model, @RequestParam("indexPhotoHtml") MultipartFile indexPhotoHtml,
+                           @RequestParam("mainPhotoHtml") MultipartFile mainPhotoHtml,
+                           @RequestParam("textPhotoHtml") MultipartFile[] textPhotoHtml
+    ) {
+        if (indexPhotoHtml != null && indexPhotoHtml.getOriginalFilename().length() > 0) {
+            if (page != null && page.getId() != null) {
+                if (imageUtils.saveImage(indexPhotoHtml, "PAGE_FOLDER", page.getId(), "index")) {
+                    page.setSmallPhoto(indexPhotoHtml.getOriginalFilename());
+                }
             }
         }
+        if (mainPhotoHtml != null && mainPhotoHtml.getOriginalFilename().length() > 0) {
+            if (page != null && page.getId() != null) {
+                if (imageUtils.saveImage(mainPhotoHtml, "PAGE_FOLDER", page.getId(), "mainPhoto")) {
+                    page.setMainPhoto(mainPhotoHtml.getOriginalFilename());
+                }
+            }
+        }
+        if (textPhotoHtml != null && textPhotoHtml.length > 0) {
+            for (MultipartFile file : textPhotoHtml) {
+                if (file != null && file.getOriginalFilename().length() > 0) {
+                    if (page != null && page.getId() != null) {
+                        if (imageUtils.saveImage(file, "PAGE_FOLDER", page.getId(), "textPhoto")) {
+                            List<InnerPagesPhoto> textP = page.getInnerPagesPhotos();
+                            if (textP == null)
+                                textP = new ArrayList<>();
+                            InnerPagesPhoto photo = new InnerPagesPhoto();
+                            photo.setPages(page);
+                            photo.setPhotoName(file.getOriginalFilename());
+                            photo = innerPagesPhotoService.save(photo);
+                            textP.add(photo);
+                            page.setInnerPagesPhotos(textP);
+                        }
+                    }
+                }
+            }
+            assert page != null;
+            page.getInnerPagesPhotos().size();
+        }
+
+
         if (page != null && page.getId() != null) {
             page = pagesService.update(page);
         } else if (page != null) {

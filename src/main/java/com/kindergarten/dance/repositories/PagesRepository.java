@@ -31,4 +31,7 @@ public interface PagesRepository extends JpaRepository<Pages, Long> {
 
     @Query("select p from Pages p where p.deleted = false  and p.showOnIndex = true")
     List<Pages> findAllForIndex();
+
+    @Query("select p from Pages p where p.deleted = false and p.pageCategory.id = 1")
+    List<Pages> findAllCoaches();
 }
