@@ -18,7 +18,7 @@ class MainController {
         val settings = indexSettingsService.first
         model.addAttribute("phone", settings.phone)
         model.addAttribute("address", settings.adress)
-        model.addAttribute("coaches", pagesService.getAllActiveCoaches())
+
         model.addAttribute("ourHall", pagesService.getAllActiveOurHall())
         model.addAttribute("news", pagesService.getAllActiveNewslastTwo())
         model.addAttribute("inspirations",  pagesService.getAllActiveInspirations())

@@ -62,14 +62,14 @@ public class PagesListArticleController {
                            @RequestParam("mainPhotoHtml") MultipartFile mainPhotoHtml,
                            @RequestParam("textPhotoHtml") MultipartFile[] textPhotoHtml
     ) {
-        if (indexPhotoHtml != null && indexPhotoHtml.getOriginalFilename().length() > 0) {
+        if (indexPhotoHtml != null && indexPhotoHtml.getOriginalFilename().length() > 2) {
             if (page != null && page.getId() != null) {
                 if (imageUtils.saveImage(indexPhotoHtml, "PAGE_FOLDER", page.getId(), "index")) {
                     page.setSmallPhoto(indexPhotoHtml.getOriginalFilename());
                 }
             }
         }
-        if (mainPhotoHtml != null && mainPhotoHtml.getOriginalFilename().length() > 0) {
+        if (mainPhotoHtml != null && mainPhotoHtml.getOriginalFilename().length() > 2) {
             if (page != null && page.getId() != null) {
                 if (imageUtils.saveImage(mainPhotoHtml, "PAGE_FOLDER", page.getId(), "mainPhoto")) {
                     page.setMainPhoto(mainPhotoHtml.getOriginalFilename());
@@ -78,24 +78,22 @@ public class PagesListArticleController {
         }
         if (textPhotoHtml != null && textPhotoHtml.length > 0) {
             for (MultipartFile file : textPhotoHtml) {
-                if (file != null && file.getOriginalFilename().length() > 0) {
+                if (file != null && file.getOriginalFilename().length() > 2) {
                     if (page != null && page.getId() != null) {
                         if (imageUtils.saveImage(file, "PAGE_FOLDER", page.getId(), "textPhoto")) {
                             List<InnerPagesPhoto> textP = page.getInnerPagesPhotos();
                             if (textP == null)
                                 textP = new ArrayList<>();
-                            InnerPagesPhoto photo = new InnerPagesPhoto();
-                            photo.setPages(page);
-                            photo.setPhotoName(file.getOriginalFilename());
+                            InnerPagesPhoto photo = new InnerPagesPhoto(page, file.getOriginalFilename());
                             photo = innerPagesPhotoService.save(photo);
-                            textP.add(photo);
+                            if (photo != null && photo.getId() != null) {
+                                textP.add(photo);
+                            }
                             page.setInnerPagesPhotos(textP);
                         }
                     }
                 }
             }
-            assert page != null;
-            page.getInnerPagesPhotos().size();
         }
 
 

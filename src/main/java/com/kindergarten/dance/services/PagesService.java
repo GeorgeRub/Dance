@@ -2,6 +2,7 @@ package com.kindergarten.dance.services;
 
 import com.kindergarten.dance.model.pages.Pages;
 import com.kindergarten.dance.repositories.PagesRepository;
+import org.jetbrains.annotations.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -67,5 +68,9 @@ public class PagesService {
     public List<Pages> getAllActiveNewslastTwo(){
 //        System.out.println("getAllActiveNewslastTwo OK");
         return pagesRepository.getAllActiveNewslastTwo(new PageRequest(0,2));
+    }
+
+    public List<Pages> findAllDirections() {
+        return pagesRepository.getAllActiveByCat(7l);
     }
 }

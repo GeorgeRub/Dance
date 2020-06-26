@@ -82,10 +82,10 @@ public class ImageUtils {
                 if (sizeWrapper.getWidth() != null && sizeWrapper.getHeight() != null) {
                     bufferedImage = new CropImageUtil().cropImage(bufferedImage, sizeWrapper.getWidth(), sizeWrapper.getHeight());
                     bufferedImage = ImageResize.resizeImage(bufferedImage, sizeWrapper.getWidth());
-                    newPath += sizeWrapper.getHeight() + "x" + sizeWrapper.getHeight() + File.separator;
+                    newPath += sizeWrapper.getWidth() + "x" + sizeWrapper.getHeight() + File.separator;
                 } else if (sizeWrapper.getWidth() != null) {
                     bufferedImage = ImageResize.resizeImage(bufferedImage, sizeWrapper.getWidth());
-                    newPath += sizeWrapper.getHeight() + File.separator;
+                    newPath += sizeWrapper.getWidth() + File.separator;
                 }
                 saveImageInner(newPath, suffix, bufferedImage, image.getOriginalFilename());
             }
@@ -107,7 +107,7 @@ public class ImageUtils {
             ImageWriteParam iwp = new JPEGImageWriteParam(null);
             iwp.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
             iwp.setProgressiveMode(ImageWriteParam.MODE_DEFAULT);
-            iwp.setCompressionQuality(0.75f);
+            iwp.setCompressionQuality(0.8f);
             ImageWriter writer = ImageIO.getImageWritersBySuffix(suffix).next();
             imageOut = ImageIO.createImageOutputStream(new File(path + fileName));
             writer.setOutput(imageOut);

@@ -6,6 +6,7 @@ import com.kindergarten.dance.services.UsersService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 
 @Controller
@@ -19,15 +20,25 @@ class IndexController {
 
     @Autowired
     lateinit var settingsService: SettingsService
+
     @Autowired
     lateinit var pagesService: PagesService
 
     @RequestMapping("/")
     fun index(model: Model): String {
         mainController.addModel(model)
+        model.addAttribute("coaches", pagesService.getAllActiveCoaches())
         model.addAttribute("ways", pagesService.findAllForIndex())
+        model.addAttribute("directions", pagesService.findAllDirections())
         model.addAttribute("image", settingsService.returnValueByName("RESOURCES_FOLDER"))
         return "index"
+    }
+
+    @RequestMapping("/page/{url}")
+    fun showPage(model: Model, @PathVariable url: String): String {
+        mainController.addModel(model)
+        model.addAttribute("page", pagesService.getByUrl(url));
+        return "showPage";
     }
 
     @RequestMapping("/login")

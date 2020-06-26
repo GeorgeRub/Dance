@@ -45,10 +45,10 @@
                     </tr>
                     <tr>
                         <td>
-                           Головне фото статті
+                            Головне фото статті
                         </td>
                         <td>
-                            <img src="/images/page/${page.id}/200x200/${page.mainPhoto}"/>
+                            <img src="/images/page/${page.id}/900x200/${page.mainPhoto}"/>
                             <label for="uploadFileMain">Виберіть фото</label>
                             <input id="uploadFileMain" type="file" name="mainPhotoHtml"
                                    class="form-control"/>
@@ -59,7 +59,7 @@
                             Фото для головної сторінці
                         </td>
                         <td>
-                            <img src="/images/page/${page.id}/200x200/${page.innerPagesPhotos}"/>
+                            <img src="/images/page/${page.id}/300x350/${page.smallPhoto}"/>
                             <label for="uploadFile">Виберіть фото</label>
                             <input id="uploadFile" type="file" name="indexPhotoHtml"
                                    class="form-control"/>
@@ -73,6 +73,18 @@
                             <label for="uploadFileText">Виберіть фото</label>multiple
                             <input id="uploadFileText" type="file" name="textPhotoHtml" multiple
                                    class="form-control"/>
+
+                            <div class="container">
+                                <div class="row">
+                                    <c:forEach items="${page.innerPagesPhotos}" var="inPhoto">
+                                        <div class="col-6">
+                                            <img src="/images/page/${page.id}/300x300/${inPhoto.photoName}">
+                                        </div>
+                                        <div class="col-6">/images/page/${page.id}/300x300/${inPhoto.photoName}</div>
+                                    </c:forEach>
+                                </div>
+                            </div>
+
                         </td>
                     </tr>
                     <tr>

@@ -20,6 +20,16 @@ public class InnerPagesPhoto extends BaseEntity {
     @JoinColumn(name = "p_id")
     private Pages pages;
 
+    public InnerPagesPhoto() {
+    }
+
+    public InnerPagesPhoto(Pages pages, String photoName) {
+        this.pages = pages;
+        this.photoName = photoName;
+    }
+
+
+
     public Long getId() {
         return id;
     }
