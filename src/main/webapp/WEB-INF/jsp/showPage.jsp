@@ -37,9 +37,9 @@
 </div>
 
 <div class="back-button" style="color: white; border-radius: 50%;">
-    <img src="/images/arrow-left-50-1.png" style="
-    width: 100%;
-     padding: 10px">
+    <a href="/">
+        <img src="/images/arrow-left-50-1.png" style="width: 100%; padding: 10px">
+    </a>
 </div>
 
 </body>
