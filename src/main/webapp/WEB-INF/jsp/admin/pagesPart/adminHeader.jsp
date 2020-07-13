@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="/css/bootstrap4/bootstrap.css"/>
 </head>
 <body>
-
+<div class="container">
+    <h2>admin header</h2>
+</div>
 </body>
 </html>

@@ -1,9 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <script type="text/javascript" src="/js/jquery/jquery.min.js"></script>
-    <script type="text/javascript" src="/js/bootstrap4/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/js/bootstrap4/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="/css/bootstrap4/bootstrap.css"/>
     <link rel="stylesheet" href="/css/main.css"/>
 </head>
@@ -24,18 +21,21 @@
         <div class="offset-lg-4 col-lg-4">
             <div class="row">
                 <div class="col-12 align-content-end text-center" style="margin-bottom: 15px">
-                    <span style="color: #e580ad; font-size: 20px">${phone}</span>
-                    <br>
-                    <span>${address}</span>
-                    <br>
-                    <img src="/images/in.png">
-                    <img src="/images/vb.png">
-                    <img src="/images/fb.png">
+                    <div>
+                        <span style="color: #e580ad; font-size: 20px">${phone}</span>
+                        <br>
+                        <span>${address}</span>
+                        <br></div>
+                    <div style="position: -webkit-sticky; position: sticky; top: 0;">
+                        <img src="/images/in.png">
+                        <img src="/images/vb.png">
+                        <img src="/images/fb.png">
+                    </div>
                 </div>
             </div>
         </div>
         <div class="col-12 align-self-end text-center" style="padding-bottom: 15px; color: #e580ad;">
-            ${page.title}
+            <h2 style="color: black; font-family: Roboto;">${page.shortTitle}</h2>
         </div>
     </div>
 

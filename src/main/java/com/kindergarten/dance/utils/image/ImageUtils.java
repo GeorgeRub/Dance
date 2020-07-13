@@ -2,7 +2,7 @@ package com.kindergarten.dance.utils.image;
 
 import com.kindergarten.dance.model.Settings;
 import com.kindergarten.dance.services.SettingsService;
-import com.kindergarten.dance.utils.FileUtils;
+//import com.kindergarten.dance.utils.FileUtils;
 import com.kindergarten.dance.utils.FolderUtils;
 import com.kindergarten.dance.wrappers.ImageSizeWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +53,10 @@ public class ImageUtils {
                         break;
                     case "textPhoto":
                         wrapper = settings.getTextPhotoWrapper();
+                        processWrapper(wrapper, bufferedImage, image, folder, obId, suffix);
+                        break;
+                    case "directionPhoto":
+                        wrapper = settings.getDirectionPhotoWrapper();
                         processWrapper(wrapper, bufferedImage, image, folder, obId, suffix);
                         break;
                     default:

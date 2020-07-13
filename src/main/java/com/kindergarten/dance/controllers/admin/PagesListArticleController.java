@@ -58,10 +58,14 @@ public class PagesListArticleController {
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String savePage(@ModelAttribute Pages page, Model model, @RequestParam("indexPhotoHtml") MultipartFile indexPhotoHtml,
+    public String savePage(@ModelAttribute Pages page, Model model,
+                           @RequestParam("indexPhotoHtml") MultipartFile indexPhotoHtml,
                            @RequestParam("mainPhotoHtml") MultipartFile mainPhotoHtml,
                            @RequestParam("textPhotoHtml") MultipartFile[] textPhotoHtml
     ) {
+
+        System.out.println(page.toString());
+
         if (indexPhotoHtml != null && indexPhotoHtml.getOriginalFilename().length() > 2) {
             if (page != null && page.getId() != null) {
                 if (imageUtils.saveImage(indexPhotoHtml, "PAGE_FOLDER", page.getId(), "index")) {
@@ -69,6 +73,7 @@ public class PagesListArticleController {
                 }
             }
         }
+
         if (mainPhotoHtml != null && mainPhotoHtml.getOriginalFilename().length() > 2) {
             if (page != null && page.getId() != null) {
                 if (imageUtils.saveImage(mainPhotoHtml, "PAGE_FOLDER", page.getId(), "mainPhoto")) {
@@ -96,6 +101,7 @@ public class PagesListArticleController {
             }
         }
 
+        System.out.println(page.toString());
 
         if (page != null && page.getId() != null) {
             page = pagesService.update(page);

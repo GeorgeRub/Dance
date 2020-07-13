@@ -199,6 +199,7 @@ public class Pages extends BaseEntity {
                 ", url='" + url + '\'' +
                 ", text='" + text + '\'' +
                 ", mainPhoto='" + mainPhoto + '\'' +
+                ", smallPhoto='" + smallPhoto + '\'' +
                 ", title='" + title + '\'' +
                 ", shortTitle='" + shortTitle + '\'' +
                 ", hasScheduler=" + hasScheduler +

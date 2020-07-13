@@ -6,128 +6,148 @@
 
 </head>
 <body>
+
 <c:import url="../pagesPart/adminHeader.jsp"/>
+
 <div class="container">
-    <div class="row">
-        <div class="col-12">
-            <form method="post" action="/admin/pages/save" role="form" enctype="multipart/form-data">
-                <table>
 
-                    <tr>
-                        <td>URL</td>
-                        <td><input type="text" name="url" maxlength="100" size="50" value="${page.url}">
-                            <input name="id" value="${page.id}" type="hidden">
-                            <input name="smallPhoto" value="${page.smallPhoto}" type="hidden">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Заголовок SEO</td>
-                        <td><input type="text" name="title" maxlength="100" size="50" value="${page.title}"></td>
-                    </tr>
-                    <tr>
-                        <td>Опис SEO</td>
-                        <td><input type="text" name="description" maxlength="100" size="50" value="${page.description}">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Ключові слова SEO</td>
-                        <td><input type="text" name="keyWords" maxlength="100" size="50" value="${page.keyWords}"></td>
-                    </tr>
-                    <tr>
-                        <td>Заголовок</td>
-                        <td><input type="text" name="shortTitle" maxlength="100" size="50" value="${page.shortTitle}">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label for="showOnIndex">Показувати на головній сторінці</label></td>
-                        <td><input id="showOnIndex" type="checkbox" name="showOnIndex"
-                                   <c:if test="${page.showOnIndex}">checked</c:if>/></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Головне фото статті
-                        </td>
-                        <td>
-                            <img src="/images/page/${page.id}/900x200/${page.mainPhoto}"/>
-                            <label for="uploadFileMain">Виберіть фото</label>
-                            <input id="uploadFileMain" type="file" name="mainPhotoHtml"
-                                   class="form-control"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Фото для головної сторінці
-                        </td>
-                        <td>
-                            <img src="/images/page/${page.id}/300x350/${page.smallPhoto}"/>
-                            <label for="uploadFile">Виберіть фото</label>
-                            <input id="uploadFile" type="file" name="indexPhotoHtml"
-                                   class="form-control"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Фото для статті
-                        </td>
-                        <td>
-                            <label for="uploadFileText">Виберіть фото</label>multiple
-                            <input id="uploadFileText" type="file" name="textPhotoHtml" multiple
-                                   class="form-control"/>
+    <form method="post" action="/admin/pages/save" role="form" enctype="multipart/form-data">
 
-                            <div class="container">
-                                <div class="row">
-                                    <c:forEach items="${page.innerPagesPhotos}" var="inPhoto">
-                                        <div class="col-6">
-                                            <img src="/images/page/${page.id}/300x300/${inPhoto.photoName}">
-                                        </div>
-                                        <div class="col-6">/images/page/${page.id}/300x300/${inPhoto.photoName}</div>
-                                    </c:forEach>
-                                </div>
-                            </div>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                   aria-selected="true">Налаштування сторінки</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="photos-tab" data-toggle="tab" href="#photos" role="tab"
+                   aria-controls="photos" aria-selected="false">Фотографії</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="text-tab" data-toggle="tab" href="#text" role="tab"
+                   aria-controls="text" aria-selected="false">Текст</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="seo-tab" data-toggle="tab" href="#seo" role="tab" aria-controls="seo"
+                   aria-selected="false">SEO</a>
+            </li>
+        </ul>
 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Текст</td>
-                        <td>
-                            <select name="pageCategory.id">
-                                <option value="0">----SELECT ROLE----</option>
-                                <c:forEach var="cat" items="${categories}">
-                                    <option value="${cat.id}"
-                                            <c:if test="${page.pageCategory != null}">
-                                                <c:if test="${cat.id == page.pageCategory.id}">
-                                                    selected
-                                                </c:if>
-                                            </c:if>
-                                    >${cat.ukrName}</option>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="row">
+                    <div class="col-6">URL</div>
+                    <div class="col-6"><input type="text" name="url" maxlength="100" size="50" value="${page.url}">
+                        <input name="id" value="${page.id}" type="hidden">
+                        <input name="smallPhoto" value="${page.smallPhoto}" type="hidden">
+                        <input name="mainPhoto" value="${page.mainPhoto}" type="hidden">
+                    </div>
+                    <div class="col-6">Заголовок</div>
+                    <div class="col-6"><input type="text" name="shortTitle" maxlength="100" size="50"
+                                              value="${page.shortTitle}"></div>
+                    <div class="col-6">Текст</div>
+                    <div class="col-6"><select name="pageCategory.id">
+                        <option value="0">----SELECT ROLE----</option>
+                        <c:forEach var="cat" items="${categories}">
+                            <option value="${cat.id}"
+                                    <c:if test="${page.pageCategory != null}">
+                                        <c:if test="${cat.id == page.pageCategory.id}">
+                                            selected
+                                        </c:if>
+                                    </c:if>
+                            >${cat.ukrName}</option>
+                        </c:forEach>
+                    </select></div>
+                    <div class="col-6">Показувати на головній сторінці</div>
+                    <div class="col-6"><input id="showOnIndex" type="checkbox" name="showOnIndex"
+                                              <c:if test="${page.showOnIndex}">checked</c:if>/></div>
+                    <div class="col-6"><label for="enable">Видалити</label></div>
+                    <div class="col-6">
+                        <input id="enable" type="checkbox" name="deleted"
+                               <c:if test="${page.deleted}">checked</c:if>/></div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="photos" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="row">
+                    <div class="col-12" style="height: 20px;"></div>
+                    <div class="col-6">Головне фото статті</div>
+                    <div class="col-6"><img src="/images/page/${page.id}/900x200/${page.mainPhoto}"
+                                            style="width: 100%;"/>
+                        <label for="uploadFileMain">Виберіть фото</label>
+                        <input id="uploadFileMain" type="file" name="mainPhotoHtml"
+                               class="form-control"/></div>
+                    <div class="col-12" style="height: 20px;"></div>
+                    <div class="col-6">Фото для головної сторінці</div>
+                    <div class="col-6"><img src="/images/page/${page.id}/300x350/${page.smallPhoto}"/>
+                        <label for="uploadFile">Виберіть фото</label>
+                        <input id="uploadFile" type="file" name="indexPhotoHtml"
+                               class="form-control"/></div>
+                    <div class="col-12" style="height: 20px;"></div>
+                    <div class="col-12">Фото для статті</div>
+                    <div class="col-12">
+                        <label for="uploadFileText">Виберіть фото</label>
+                        <input id="uploadFileText" type="file" name="textPhotoHtml" multiple
+                               class="form-control"/>
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12" style="height: 20px;"></div>
+                                <c:forEach items="${page.innerPagesPhotos}" var="inPhoto">
+                                    <div class="col-6">
+                                        <img src="/images/page/${page.id}/300x300/${inPhoto.photoName}"
+                                             style="width: 150px;">
+                                    </div>
+                                    <div class="col-6">/images/page/${page.id}/300x300/${inPhoto.photoName}</div>
+                                    <div class="col-12" style="height: 20px;"></div>
                                 </c:forEach>
-                            </select>
-                        </td>
-                    </tr>
-                </table>
-                <div>
-                    <p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6"></div>
+                    <div class="col-6"></div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="text" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="row">
+                    <div class="col-12">
+                        <p>
                                 <textarea name="text" id="textBody">
                     <c:if test="${page.text != null}">
                         ${page.text}
                     </c:if>
                         </textarea>
-                        <script>
-                            CKEDITOR.replace('textBody');
-                        </script>
-                    </p>
+                            <script>
+                                CKEDITOR.replace('textBody');
+                            </script>
+                        </p>
+                    </div>
                 </div>
-                <div>
-                    <label for="enable">Видалити</label>
-                    <input id="enable" type="checkbox" name="deleted"
-                           <c:if test="${page.deleted}">checked</c:if>/>
+            </div>
+            <div class="tab-pane fade" id="seo" role="tabpanel" aria-labelledby="seo-tab">
+                <div class="row">
+                    <div class="col-6">Заголовок SEO</div>
+                    <div class="col-6"><input type="text" name="title" maxlength="100" size="50" value="${page.title}">
+                    </div>
+                    <div class="col-6">Опис SEO</div>
+                    <div class="col-6"><input type="text" name="description" maxlength="100" size="50"
+                                              value="${page.description}"></div>
+                    <div class="col-6">Ключові слова SEO</div>
+                    <div class="col-6"><input type="text" name="keyWords" maxlength="100" size="50"
+                                              value="${page.keyWords}"></div>
                 </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-12">
                 <p>
                     <input type="submit" value="Зберегти">
+                    <input type="reset" value="Відміна" onclick="location.href='/admin/'">
                 </p>
-            </form>
+
+            </div>
         </div>
-    </div>
+    </form>
 </div>
 </body>
 </html>

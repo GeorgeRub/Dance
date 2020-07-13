@@ -31,6 +31,8 @@ public class Settings extends BaseEntity {
     private String textPhoto;
     @Column(name = "index_photo")
     private String indexPhoto;
+    @Column(name = "direction_photo")
+    private String directionPhoto;
 
 
     public Settings() {
@@ -132,6 +134,31 @@ public class Settings extends BaseEntity {
             this.indexPhoto = new Gson().toJson(indexPhoto);
         } else {
             this.indexPhoto = null;
+        }
+    }
+
+    public String getDirectionPhoto() {
+        return directionPhoto;
+    }
+
+
+    public List<ImageSizeWrapper> getDirectionPhotoWrapper() {
+        if (directionPhoto != null && directionPhoto.length() > 1) {
+            Type itemsListType = new TypeToken<List<ImageSizeWrapper>>() {
+            }.getType();
+            return new Gson().fromJson(directionPhoto, itemsListType);
+        }
+        return null;
+    }
+
+    public void setDirectionPhoto(String directionPhoto) {
+        this.directionPhoto = directionPhoto;
+    }
+    public void setDirectionPhoto(List<ImageSizeWrapper>  directionPhoto) {
+        if (directionPhoto != null) {
+            this.directionPhoto = new Gson().toJson(indexPhoto);
+        } else {
+            this.directionPhoto = null;
         }
     }
 

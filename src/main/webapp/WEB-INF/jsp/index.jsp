@@ -30,81 +30,92 @@
         <div class="col-12">
             <div class="row">
                 <div class="col-xl-6 col-md-6 text-lg-left text-center"><h1>НАПРЯМКИ</h1></div>
-                <div class="col-xl-6 col-md-6 text-lg-left text-center">
-                    <h1 class="align-self-center">text</h1>
+                <div class="col-xl-6 col-md-6 text-lg-left text-center" style="background-color: #BE1C4D;">
+                    <center>
+                        <h1 class="align-self-center" style="color: white;">ПРОБНЕ ЗАНЯТТЯ</h1>
+                    </center>
                 </div>
             </div>
         </div>
         <div class="col-12">
-            <c:forEach items="${directions}" var="direction">
-                <div class="col-lg-3 col-sm-6 col-md-6 col-12">
-                    <div>
-                        <center>
-                            <img src="/images/page/${direction.id}/200x200/${direction.smallPhoto}" style="height: 200px;">
-                        </center>
+            <div class="row">
+                <c:forEach items="${directions}" var="direction">
+                    <div class="col-lg-3 col-sm-6 col-md-6">
+                        <div>
+                            <center>
+                                <a href="/page/${direction.url}">
+                                    <source srcset="/images/page/${direction.id}/300x350/${direction.mainPhoto}"
+                                            media="(max-width: 768px)" style="width: 100%;">
+                                    <img src="/images/page/${direction.id}/150x200/${direction.smallPhoto}"
+                                         style="height: 200px;" alt="${direction.shortTitle}">
+                                </a>
+                            </center>
+                        </div>
+                        <div>
+                            <center>
+                                <a href="/page/${direction.url}">
+                                    <h2 style="font-size: 16px;">${direction.shortTitle}</h2>
+                                </a>
+                            </center>
+                        </div>
                     </div>
-                    <div>
-                        <center>
-                            <h2 style="font-size: 16px;">${direction.shortTitle}</h2>
-                        </center>
-                    </div>
-                </div>
-            </c:forEach>
+                </c:forEach>
+            </div>
         </div>
 
-<%--        <div class="col-12">--%>
-<%--            <div class="row">--%>
-<%--                <div class="col-lg-3 col-sm-6 col-md-6 col-12">--%>
-<%--                    <div>--%>
-<%--                        <center>--%>
-<%--                            <img src="/images/design/Site/images/Latina_dance.jpg" style="height: 200px;">--%>
-<%--                        </center>--%>
-<%--                    </div>--%>
-<%--                    <div>--%>
-<%--                        <center>--%>
-<%--                            <h2 style="font-size: 16px;">Спортивно-бальні<br>(ДІТИ)</h2>--%>
-<%--                        </center>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--                <div class="col-lg-3 col-sm-6 col-md-6 col-12">--%>
-<%--                    <div>--%>
-<%--                        <center>--%>
-<%--                            <img src="/images/design/Site/images/Latina_dance.jpg" style="height: 200px;">--%>
-<%--                        </center>--%>
-<%--                    </div>--%>
-<%--                    <div>--%>
-<%--                        <center>--%>
-<%--                            <h2 style="font-size: 16px;">Латино-американськи</h2>--%>
-<%--                        </center>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--                <div class="col-lg-3 col-sm-6 col-md-6 col-12">--%>
-<%--                    <div>--%>
-<%--                        <center>--%>
-<%--                            <img src="/images/design/Site/images/Belly_dance.jpg" style="height: 200px;">--%>
-<%--                        </center>--%>
-<%--                    </div>--%>
-<%--                    <div>--%>
-<%--                        <center>--%>
-<%--                            <h2 style="font-size: 16px;">Східні</h2>--%>
-<%--                        </center>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--                <div class="col-lg-3 col-sm-6 col-md-6 col-12">--%>
-<%--                    <div>--%>
-<%--                        <center>--%>
-<%--                            <img src="/images/design/Site/images/Stretching.jpg" style="height: 200px;">--%>
-<%--                        </center>--%>
-<%--                    </div>--%>
-<%--                    <div>--%>
-<%--                        <center>--%>
-<%--                            <h2 style="font-size: 16px;">Стретчінг</h2>--%>
-<%--                        </center>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--            </div>--%>
+        <%--        <div class="col-12">--%>
+        <%--            <div class="row">--%>
+        <%--                <div class="col-lg-3 col-sm-6 col-md-6 col-12">--%>
+        <%--                    <div>--%>
+        <%--                        <center>--%>
+        <%--                            <img src="/images/design/Site/images/Latina_dance.jpg" style="height: 200px;">--%>
+        <%--                        </center>--%>
+        <%--                    </div>--%>
+        <%--                    <div>--%>
+        <%--                        <center>--%>
+        <%--                            <h2 style="font-size: 16px;">Спортивно-бальні<br>(ДІТИ)</h2>--%>
+        <%--                        </center>--%>
+        <%--                    </div>--%>
+        <%--                </div>--%>
+        <%--                <div class="col-lg-3 col-sm-6 col-md-6 col-12">--%>
+        <%--                    <div>--%>
+        <%--                        <center>--%>
+        <%--                            <img src="/images/design/Site/images/Latina_dance.jpg" style="height: 200px;">--%>
+        <%--                        </center>--%>
+        <%--                    </div>--%>
+        <%--                    <div>--%>
+        <%--                        <center>--%>
+        <%--                            <h2 style="font-size: 16px;">Латино-американськи</h2>--%>
+        <%--                        </center>--%>
+        <%--                    </div>--%>
+        <%--                </div>--%>
+        <%--                <div class="col-lg-3 col-sm-6 col-md-6 col-12">--%>
+        <%--                    <div>--%>
+        <%--                        <center>--%>
+        <%--                            <img src="/images/design/Site/images/Belly_dance.jpg" style="height: 200px;">--%>
+        <%--                        </center>--%>
+        <%--                    </div>--%>
+        <%--                    <div>--%>
+        <%--                        <center>--%>
+        <%--                            <h2 style="font-size: 16px;">Східні</h2>--%>
+        <%--                        </center>--%>
+        <%--                    </div>--%>
+        <%--                </div>--%>
+        <%--                <div class="col-lg-3 col-sm-6 col-md-6 col-12">--%>
+        <%--                    <div>--%>
+        <%--                        <center>--%>
+        <%--                            <img src="/images/design/Site/images/Stretching.jpg" style="height: 200px;">--%>
+        <%--                        </center>--%>
+        <%--                    </div>--%>
+        <%--                    <div>--%>
+        <%--                        <center>--%>
+        <%--                            <h2 style="font-size: 16px;">Стретчінг</h2>--%>
+        <%--                        </center>--%>
+        <%--                    </div>--%>
+        <%--                </div>--%>
+        <%--            </div>--%>
 
-<%--        </div>--%>
+        <%--        </div>--%>
 
         <div class="col-12" style="margin-top: 20px;">
             <div class="row">
