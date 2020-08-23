@@ -62,6 +62,9 @@ public class Pages extends BaseEntity {
     @OneToMany(mappedBy = "pages", fetch = FetchType.LAZY)
     private List<InnerPagesPhoto> innerPagesPhotos;
 
+    @Column
+    private String preTitle;
+
     public Long getId() {
         return id;
     }
@@ -190,7 +193,13 @@ public class Pages extends BaseEntity {
         this.showOnIndex = showOnIndex;
     }
 
+    public String getPreTitle() {
+        return preTitle;
+    }
 
+    public void setPreTitle(String preTitle) {
+        this.preTitle = preTitle;
+    }
 
     @Override
     public String toString() {
@@ -205,6 +214,7 @@ public class Pages extends BaseEntity {
                 ", hasScheduler=" + hasScheduler +
                 ", schedule=" + schedule +
                 ", category=" + category +
+                ", preTitle=" + preTitle +
                 '}';
     }
 }

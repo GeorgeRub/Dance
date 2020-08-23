@@ -4,21 +4,21 @@
     padding: 0px;
 }
 
-h1{
+h1 {
     color: #BE1C4D;
     font-size: 2.5rem !important;
 }
 
-h2{
+h2 {
     color: #BE1C4D;
 }
 
-h3{
+h3 {
     color: #BE1C4D;
 }
 
-h4{
-
+h4 {
+    color: black;
     font-size: 16px;
 }
 
@@ -137,4 +137,14 @@ img.background {
 
 .side-text-size {
     font-size: 15px;
+}
+
+.btn-primary:focus, .btn-primary.focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0) !important;
+}
+
+.input-free-lesson {
+    width: 100%;
+    margin: 5px;
+    font-family: "Roboto Light", serif;
 }

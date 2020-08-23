@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="col-12">
-            <table border="1">
+            <table border="1" style="width: 100%">
                 <thead>
                 <tr>
                     <th>ID</th>
@@ -31,7 +31,7 @@
                         <td>${page.pageCategory.ukrName}</td>
                         <td>${page.title}</td>
                         <td>${page.url}</td>
-                        <td><a href="/admin/pages/edit/${page.id}" class="btn btn-light">Редагувати</a> </td>
+                        <td><a href="/admin/pages/edit/${page.id}" class="btn btn-light" style="width: 100%">Редагувати</a> </td>
                     </tr>
                 </c:forEach>
                 </tbody>

@@ -7,11 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="${page.description}">
     <meta name="keywords" content="${page.keyWords}">
+    <script src="js/angular/angular.min.js" type="text/javascript"></script>
+    <script src="js/angular/angular-mask.js" type="text/javascript"></script>
+    <script src="js/angular/angular-sanitize.min.js" type="text/javascript"></script>
+    <script src="js/controllers/index/freeLesson.js" type="text/javascript"></script>
+
 </head>
 <body class="bg">
 <c:import url="header.jsp"/>
 <div class="container-fluid">
-    <img src="/images/dance-grey-couple.jpg" class="main-index-image">
+    <img src="/images/dance-grey-couple.jpg" loading="lazy" class="main-index-image">
 </div>
 <div class="container">
     <div class="row">
@@ -32,7 +37,13 @@
                 <div class="col-xl-6 col-md-6 text-lg-left text-center"><h1>НАПРЯМКИ</h1></div>
                 <div class="col-xl-6 col-md-6 text-lg-left text-center" style="background-color: #BE1C4D;">
                     <center>
-                        <h1 class="align-self-center" style="color: white;">ПРОБНЕ ЗАНЯТТЯ</h1>
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#testLesson"
+                                style="background-color: #BE1C4D; border: solid #BE1C4D 1px; width: 100%; height: 100%;">
+                            <h1 class="align-self-center" style="color: white;">
+                                ПРОБНЕ ЗАНЯТТЯ
+                            </h1>
+                        </button>
                     </center>
                 </div>
             </div>
@@ -47,7 +58,7 @@
                                     <source srcset="/images/page/${direction.id}/300x350/${direction.mainPhoto}"
                                             media="(max-width: 768px)" style="width: 100%;">
                                     <img src="/images/page/${direction.id}/150x200/${direction.smallPhoto}"
-                                         style="height: 200px;" alt="${direction.shortTitle}">
+                                         style="height: 200px;" alt="${direction.shortTitle} " loading="lazy">
                                 </a>
                             </center>
                         </div>
@@ -62,60 +73,6 @@
                 </c:forEach>
             </div>
         </div>
-
-        <%--        <div class="col-12">--%>
-        <%--            <div class="row">--%>
-        <%--                <div class="col-lg-3 col-sm-6 col-md-6 col-12">--%>
-        <%--                    <div>--%>
-        <%--                        <center>--%>
-        <%--                            <img src="/images/design/Site/images/Latina_dance.jpg" style="height: 200px;">--%>
-        <%--                        </center>--%>
-        <%--                    </div>--%>
-        <%--                    <div>--%>
-        <%--                        <center>--%>
-        <%--                            <h2 style="font-size: 16px;">Спортивно-бальні<br>(ДІТИ)</h2>--%>
-        <%--                        </center>--%>
-        <%--                    </div>--%>
-        <%--                </div>--%>
-        <%--                <div class="col-lg-3 col-sm-6 col-md-6 col-12">--%>
-        <%--                    <div>--%>
-        <%--                        <center>--%>
-        <%--                            <img src="/images/design/Site/images/Latina_dance.jpg" style="height: 200px;">--%>
-        <%--                        </center>--%>
-        <%--                    </div>--%>
-        <%--                    <div>--%>
-        <%--                        <center>--%>
-        <%--                            <h2 style="font-size: 16px;">Латино-американськи</h2>--%>
-        <%--                        </center>--%>
-        <%--                    </div>--%>
-        <%--                </div>--%>
-        <%--                <div class="col-lg-3 col-sm-6 col-md-6 col-12">--%>
-        <%--                    <div>--%>
-        <%--                        <center>--%>
-        <%--                            <img src="/images/design/Site/images/Belly_dance.jpg" style="height: 200px;">--%>
-        <%--                        </center>--%>
-        <%--                    </div>--%>
-        <%--                    <div>--%>
-        <%--                        <center>--%>
-        <%--                            <h2 style="font-size: 16px;">Східні</h2>--%>
-        <%--                        </center>--%>
-        <%--                    </div>--%>
-        <%--                </div>--%>
-        <%--                <div class="col-lg-3 col-sm-6 col-md-6 col-12">--%>
-        <%--                    <div>--%>
-        <%--                        <center>--%>
-        <%--                            <img src="/images/design/Site/images/Stretching.jpg" style="height: 200px;">--%>
-        <%--                        </center>--%>
-        <%--                    </div>--%>
-        <%--                    <div>--%>
-        <%--                        <center>--%>
-        <%--                            <h2 style="font-size: 16px;">Стретчінг</h2>--%>
-        <%--                        </center>--%>
-        <%--                    </div>--%>
-        <%--                </div>--%>
-        <%--            </div>--%>
-
-        <%--        </div>--%>
 
         <div class="col-12" style="margin-top: 20px;">
             <div class="row">
@@ -136,11 +93,13 @@
                                     </center>
                                 </a>
                             </div>
-                            <div class="col-md-9 col-sm-12">
+                            <div class="col-md-9 col-sm-12 text-center align-self-center">
                                 <a href="/page/${coach.url}">
-                                        ${coach.shortTitle}
+                                    <h3>${coach.shortTitle}</h3>
+                                    <h4 class="text-left">
+                                            ${coach.preTitle}
+                                    </h4>
                                 </a>
-
                             </div>
                         </div>
                     </div>
@@ -152,11 +111,96 @@
                 <div class="col-xl-12 col-sm-12 text-lg-left text-center"><h1>ЗАЛ</h1></div>
             </div>
         </div>
-        <jsp:include page="pagesParts/carousel.jsp"></jsp:include>
+        <%--        <jsp:include page="pagesParts/carousel.jsp"></jsp:include>--%>
+        <link href="css/slick/slick.css" rel="stylesheet"/>
+        <link href="css/slick/slickTheme.css" rel="stylesheet"/>
+        <div class="container">
+            <div class="index-carousel">
+                <c:forEach items="${carouselImages}" var="image">
+                    <div><img src="/images/carousel/${image.imageName}" alt="" style="width: 100%;"></div>
+                </c:forEach>
+            </div>
+        </div>
+
+        <script src="js/slick/slick.js" type="text/javascript"></script>
+        <script>
+            $(document).ready(function () {
+                $('.index-carousel').slick({
+                    // lazyLoad: 'ondemand',
+                    slidesToShow: 4,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                    responsive: [
+                        {
+                            breakpoint: 1000,
+                            settings: {
+                                slidesToShow: 4,
+                                slidesToScroll: 1
+                            }
+                        },
+                        {
+                            breakpoint: 800,
+                            settings: {
+                                slidesToShow: 2,
+                                slidesToScroll: 1
+                            }
+                        },
+                        {
+                            breakpoint: 500,
+                            settings: {
+                                slidesToShow: 1,
+                                slidesToScroll: 1
+                            }
+                        }
+                    ]
+                });
+            });
+        </script>
     </div>
 </div>
 <c:import url="pagesParts/footer.jsp"/>
 <jsp:include page="pagesParts/mapPosition.jsp"></jsp:include>
+
+<div class="modal fade" id="testLesson" tabindex="-1" role="dialog" aria-labelledby="testLessonTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" ng-app="freeLesson">
+        <div class="modal-content" ng-controller="freeLessonController">
+            <form name="freeLessonForm">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="testLessonTitle">Запис на пробне заняття.</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div ng-disabled="errorMessage.length == 0">
+                        <span ng-bind-html="errorMessage"></span>
+                    </div>
+                    <div ng-disabled="successMessage.length == 0">
+                        <span ng-bind-html="successMessage"></span>
+                    </div>
+                    <div>
+                        <br>
+                        <label for="input-free-lesson-name">Ваше ім'я</label>
+                        <input id="input-free-lesson-name" type="text" class="input-free-lesson" ng-model="ngName"
+                               required>
+                        <label for="input-free-lesson-phone">Номер мобільного телефону</label>
+                        <input id="input-free-lesson-phone" type="text" class="input-free-lesson"
+                               ng-model="ngPhoneNumber" mask="+99 (999) 999 99 99" required>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn " ng-click="sendQuery()"
+                            style="background-color: #BE1C4D; color: white;" ng-disabled="freeLessonForm.$invalid">
+                        Відправити заявку
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

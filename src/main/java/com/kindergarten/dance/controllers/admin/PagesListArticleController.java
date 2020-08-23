@@ -5,8 +5,6 @@ import com.kindergarten.dance.model.pages.Pages;
 import com.kindergarten.dance.services.InnerPagesPhotoService;
 import com.kindergarten.dance.services.PageCategoryService;
 import com.kindergarten.dance.services.PagesService;
-import com.kindergarten.dance.utils.FileUtils;
-import com.kindergarten.dance.utils.image.ImageResize;
 import com.kindergarten.dance.utils.image.ImageUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -64,8 +62,6 @@ public class PagesListArticleController {
                            @RequestParam("textPhotoHtml") MultipartFile[] textPhotoHtml
     ) {
 
-        System.out.println(page.toString());
-
         if (indexPhotoHtml != null && indexPhotoHtml.getOriginalFilename().length() > 2) {
             if (page != null && page.getId() != null) {
                 if (imageUtils.saveImage(indexPhotoHtml, "PAGE_FOLDER", page.getId(), "index")) {
@@ -101,7 +97,6 @@ public class PagesListArticleController {
             }
         }
 
-        System.out.println(page.toString());
 
         if (page != null && page.getId() != null) {
             page = pagesService.update(page);

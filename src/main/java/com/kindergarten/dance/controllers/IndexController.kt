@@ -1,5 +1,6 @@
 package com.kindergarten.dance.controllers
 
+import com.kindergarten.dance.services.CarouselImagesService
 import com.kindergarten.dance.services.PagesService
 import com.kindergarten.dance.services.SettingsService
 import com.kindergarten.dance.services.UsersService
@@ -24,6 +25,9 @@ class IndexController {
     @Autowired
     lateinit var pagesService: PagesService
 
+    @Autowired
+    lateinit var carouselService: CarouselImagesService
+
     @RequestMapping("/")
     fun index(model: Model): String {
         mainController.addModel(model)
@@ -31,6 +35,7 @@ class IndexController {
         model.addAttribute("ways", pagesService.findAllForIndex())
         model.addAttribute("directions", pagesService.findAllDirections())
         model.addAttribute("image", settingsService.returnValueByName("RESOURCES_FOLDER"))
+        model.addAttribute("carouselImages", carouselService.findAllActiveImages())
         return "index"
     }
 

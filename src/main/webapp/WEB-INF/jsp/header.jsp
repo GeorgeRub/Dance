@@ -1,6 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <script src="/js/jquery/jquery.min.js" type="text/javascript" ></script>
+    <script src="/js/bootstrap4/bootstrap.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="/css/bootstrap4/bootstrap.css"/>
     <link rel="stylesheet" href="/css/main.css"/>
 </head>

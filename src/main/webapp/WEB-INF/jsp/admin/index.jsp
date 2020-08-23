@@ -6,12 +6,15 @@
 </head>
 <body>
 <c:import url="pagesPart/adminHeader.jsp"/>
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            <a href="/admin/pages/list">Список всіх сторінок</a>
+<main class="page landing-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+<%--                <a href="/admin/pages/list">Список всіх сторінок</a>--%>
+            </div>
         </div>
     </div>
-</div>
+</main>
+
 </body>
 </html>

@@ -41,9 +41,21 @@
                         <input name="smallPhoto" value="${page.smallPhoto}" type="hidden">
                         <input name="mainPhoto" value="${page.mainPhoto}" type="hidden">
                     </div>
-                    <div class="col-6">Заголовок</div>
-                    <div class="col-6"><input type="text" name="shortTitle" maxlength="100" size="50"
-                                              value="${page.shortTitle}"></div>
+                    <div class="col-6">
+                        Заголовок
+                    </div>
+                    <div class="col-6">
+                        <input type="text" name="shortTitle" maxlength="100" size="50"
+                                              value="${page.shortTitle}">
+                    </div>
+                    <div class="col-6">
+                        Короткий текст
+                    </div>
+                    <div class="col-6">
+                        <input type="text" name="preTitle" maxlength="150" size="50"
+                                              value="${page.preTitle}">
+                    </div>
+
                     <div class="col-6">Текст</div>
                     <div class="col-6"><select name="pageCategory.id">
                         <option value="0">----SELECT ROLE----</option>
@@ -72,9 +84,10 @@
                     <div class="col-6">Головне фото статті</div>
                     <div class="col-6"><img src="/images/page/${page.id}/900x200/${page.mainPhoto}"
                                             style="width: 100%;"/>
-                        <label for="uploadFileMain">Виберіть фото</label>
-                        <input id="uploadFileMain" type="file" name="mainPhotoHtml"
-                               class="form-control"/></div>
+                                <label for="uploadFileMain">Виберіть фото</label>
+                                <input id="uploadFileMain" type="file" name="mainPhotoHtml"
+                                       class="form-control"/>
+                    </div>
                     <div class="col-12" style="height: 20px;"></div>
                     <div class="col-6">Фото для головної сторінці</div>
                     <div class="col-6"><img src="/images/page/${page.id}/300x350/${page.smallPhoto}"/>

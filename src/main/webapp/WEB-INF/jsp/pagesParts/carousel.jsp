@@ -6,92 +6,54 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<script type="text/javascript" src="/js/carousel/carousel.js"></script>
-<link rel="stylesheet" href="/css/carousel/carousel.css"/>
-<div class="container">
-    <div id="carouselExample" class="carouselPrograms carousel slide" data-ride="carousel" data-interval="false">
-        <div class="carousel-inner row w-100 mx-auto" role="listbox">
-            <div class="carousel-item col-md-4  active">
-                <div class="panel panel-default">
-                    <div class="panel-thumbnail">
-                        <a href="#" title="image 1" class="thumb">
-                            <img class="img-fluid mx-auto d-block" src="//via.placeholder.com/600x400?text=1" alt="slide 1">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item col-md-4 ">
-                <div class="panel panel-default">
-                    <div class="panel-thumbnail">
-                        <a href="#" title="image 3" class="thumb">
-                            <img class="img-fluid mx-auto d-block" src="//via.placeholder.com/600x400?text=2" alt="slide 2">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item col-md-4 ">
-                <div class="panel panel-default">
-                    <div class="panel-thumbnail">
-                        <a href="#" title="image 4" class="thumb">
-                            <img class="img-fluid mx-auto d-block" src="//via.placeholder.com/600x400?text=3" alt="slide 3">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item col-md-4 ">
-                <div class="panel panel-default">
-                    <div class="panel-thumbnail">
-                        <a href="#" title="image 5" class="thumb">
-                            <img class="img-fluid mx-auto d-block" src="//via.placeholder.com/600x400?text=4" alt="slide 4">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item col-md-4 ">
-                <div class="panel panel-default">
-                    <div class="panel-thumbnail">
-                        <a href="#" title="image 6" class="thumb">
-                            <img class="img-fluid mx-auto d-block" src="//via.placeholder.com/600x400?text=5" alt="slide 5">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item col-md-4 ">
-                <div class="panel panel-default">
-                    <div class="panel-thumbnail">
-                        <a href="#" title="image 7" class="thumb">
-                            <img class="img-fluid mx-auto d-block" src="//via.placeholder.com/600x400?text=6" alt="slide 6">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item col-md-4 ">
-                <div class="panel panel-default">
-                    <div class="panel-thumbnail">
-                        <a href="#" title="image 8" class="thumb">
-                            <img class="img-fluid mx-auto d-block" src="//via.placeholder.com/600x400?text=7" alt="slide 7">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item col-md-4  ">
-                <div class="panel panel-default">
-                    <div class="panel-thumbnail">
-                        <a href="#" title="image 2" class="thumb">
-                            <img class="img-fluid mx-auto d-block" src="//via.placeholder.com/600x400?text=8" alt="slide 8">
-                        </a>
-                    </div>
+<%--<script type="text/javascript" src="/js/carousel/carousel.js"></script>--%>
+<%--<link rel="stylesheet" href="/css/carousel/carousel.css"/>--%>
 
-                </div>
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next text-faded" href="#carouselExample" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
+<link href="css/slick/slick.css" rel="stylesheet"/>
+<link href="css/slick/slickTheme.css" rel="stylesheet"/>
+<div class="container">
+    <div class="index-carousel">
+        <div><img src="/images/carousel/1.jpg" alt="" style="width: 100%;"></div>
+        <div><img src="/images/carousel/2.1.jpg" alt="" style="width: 100%;"></div>
+        <div><img src="/images/carousel/2.JPG" alt="" style="width: 100%;"></div>
+        <div><img src="/images/carousel/3.jpg" alt="" style="width: 100%;"></div>
+        <div><img src="/images/carousel/4.1.jpg" alt="" style="width: 100%;"></div>
+        <div><img src="/images/carousel/4.jpg" alt="" style="width: 100%;"></div>
     </div>
 </div>
+
+<script src="js/slick/slick.js" type="text/javascript"></script>
+<script>
+    $(document).ready(function (){
+        $('.index-carousel').slick({
+            // lazyLoad: 'ondemand',
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            responsive: [
+                {
+                    breakpoint: 1000,
+                    settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 800,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 500,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+    });
+</script>
