@@ -20,7 +20,7 @@
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-12">
+        <div class="col-12" style="margin-bottom: 20px; margin-top: 20px;">
             <div class="row">
                 <div class="col-xl-12 col-sm-12 text-lg-left text-center"><h1>ПРО НАС</h1></div>
                 <div class="col-lg-10 offset-lg-2 offset-sm-0">
@@ -32,7 +32,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12">
+        <div class="col-12" style="margin-bottom: 20px;">
             <div class="row">
                 <div class="col-xl-6 col-md-6 text-lg-left text-center"><h1>НАПРЯМКИ</h1></div>
                 <div class="col-xl-6 col-md-6 text-lg-left text-center" style="background-color: #BE1C4D;">
@@ -48,7 +48,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12">
+        <div class="col-12" style="margin-bottom: 20px;">
             <div class="row">
                 <c:forEach items="${directions}" var="direction">
                     <div class="col-lg-3 col-sm-6 col-md-6">
@@ -76,32 +76,45 @@
 
         <div class="col-12" style="margin-top: 20px;">
             <div class="row">
-                <div class="col-xl-12 col-sm-12 text-lg-left text-center"><h1>ТРЕНЕРИ</h1></div>
+                <div class="col-xl-12 col-sm-12 text-center"><h1>ТРЕНЕРИ</h1></div>
                 <div class="col-xl-12 col-sm-12 text-lg-left text-center"></div>
                 <c:forEach items="${coaches}" var="coach">
-                    <div class="col-12 coach-index-background">
-                        <div class="row align-items-end">
-                            <div class="col-md-3 col-sm-12">
-                                <a href="/page/${coach.url}">
-                                    <center>
-                                        <picture>
-                                            <source srcset="/images/page/${coach.id}/200x200/${coach.smallPhoto}"
-                                                    media="(max-width: 768px)" style="width: 200px;">
-                                            <img srcset="/images/page/${coach.id}/300x350/${coach.smallPhoto}" alt=""
-                                                 style="width: 200px;">
-                                        </picture>
-                                    </center>
-                                </a>
-                            </div>
-                            <div class="col-md-9 col-sm-12 text-center align-self-center">
-                                <a href="/page/${coach.url}">
-                                    <h3>${coach.shortTitle}</h3>
-                                    <h4 class="text-left">
-                                            ${coach.preTitle}
-                                    </h4>
-                                </a>
-                            </div>
+                    <div class="offset-xl-2 col-xl-3 offset-sm-1 col-sm-10 coach-index-background">
+                        <div>
+                            <a href="/page/${coach.url}">
+                                <center>
+                                    <img srcset="/images/page/${coach.id}/300x350/${coach.smallPhoto}" alt=""
+                                         style="width: 100%;">
+                                </center>
+                            </a>
                         </div>
+                        <div class="text-center">
+                            <a href="/page/${coach.url}">
+                                <h3>${coach.shortTitle}</h3>
+                            </a>
+                        </div>
+                            <%--                        <div class="row align-items-end">--%>
+                            <%--                            <div class="col-md-3 col-sm-12">--%>
+                            <%--                                <a href="/page/${coach.url}">--%>
+                            <%--                                    <center>--%>
+                            <%--                                        <picture>--%>
+                            <%--                                            <source srcset="/images/page/${coach.id}/300x350/${coach.smallPhoto}"--%>
+                            <%--                                                    media="(max-width: 768px)" style="width: 200px;">--%>
+                            <%--                                            <img srcset="/images/page/${coach.id}/300x350/${coach.smallPhoto}" alt=""--%>
+                            <%--                                                 style="width: 200px;">--%>
+                            <%--                                        </picture>--%>
+                            <%--                                    </center>--%>
+                            <%--                                </a>--%>
+                            <%--                            </div>--%>
+                            <%--                            <div class="col-md-9 col-sm-12 text-center align-self-center">--%>
+                            <%--                                <a href="/page/${coach.url}">--%>
+                            <%--                                    <h3>${coach.shortTitle}</h3>--%>
+                            <%--                                    <h4 class="text-left">--%>
+                            <%--                                            ${coach.preTitle}--%>
+                            <%--                                    </h4>--%>
+                            <%--                                </a>--%>
+                            <%--                            </div>--%>
+                            <%--                        </div>--%>
                     </div>
                 </c:forEach>
             </div>
