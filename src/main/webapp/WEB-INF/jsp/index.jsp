@@ -93,35 +93,28 @@
                                 <h3>${coach.shortTitle}</h3>
                             </a>
                         </div>
-                            <%--                        <div class="row align-items-end">--%>
-                            <%--                            <div class="col-md-3 col-sm-12">--%>
-                            <%--                                <a href="/page/${coach.url}">--%>
-                            <%--                                    <center>--%>
-                            <%--                                        <picture>--%>
-                            <%--                                            <source srcset="/images/page/${coach.id}/300x350/${coach.smallPhoto}"--%>
-                            <%--                                                    media="(max-width: 768px)" style="width: 200px;">--%>
-                            <%--                                            <img srcset="/images/page/${coach.id}/300x350/${coach.smallPhoto}" alt=""--%>
-                            <%--                                                 style="width: 200px;">--%>
-                            <%--                                        </picture>--%>
-                            <%--                                    </center>--%>
-                            <%--                                </a>--%>
-                            <%--                            </div>--%>
-                            <%--                            <div class="col-md-9 col-sm-12 text-center align-self-center">--%>
-                            <%--                                <a href="/page/${coach.url}">--%>
-                            <%--                                    <h3>${coach.shortTitle}</h3>--%>
-                            <%--                                    <h4 class="text-left">--%>
-                            <%--                                            ${coach.preTitle}--%>
-                            <%--                                    </h4>--%>
-                            <%--                                </a>--%>
-                            <%--                            </div>--%>
-                            <%--                        </div>--%>
                     </div>
                 </c:forEach>
             </div>
         </div>
         <div class="col-12">
             <div class="row">
-                <div class="col-xl-12 col-sm-12 text-lg-left text-center"><h1>ЗАЛ</h1></div>
+                <div class="col-xl-12 col-sm-12 text-lg-left text-center"><h1>ЗАЛ 1</h1></div>
+            </div>
+        </div>
+        <%--        <jsp:include page="pagesParts/carousel.jsp"></jsp:include>--%>
+        <link href="css/slick/slick.css" rel="stylesheet"/>
+        <link href="css/slick/slickTheme.css" rel="stylesheet"/>
+        <div class="container">
+            <div class="index-carousel">
+                <c:forEach items="${carouselImages}" var="image">
+                    <div><img src="/images/carousel/${image.imageName}" alt="" style="width: 100%;"></div>
+                </c:forEach>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="row">
+                <div class="col-xl-12 col-sm-12 text-lg-left text-center"><h1>ЗАЛ 2</h1></div>
             </div>
         </div>
         <%--        <jsp:include page="pagesParts/carousel.jsp"></jsp:include>--%>
@@ -193,21 +186,25 @@
                     <div ng-disabled="successMessage.length == 0">
                         <span ng-bind-html="successMessage"></span>
                     </div>
-                    <div>
+                    <div ng-show="showSendPhoneButton">
                         <br>
                         <label for="input-free-lesson-name">Ваше ім'я</label>
-                        <input id="input-free-lesson-name" type="text" class="input-free-lesson" ng-model="ngName"
+                        <input id="input-free-lesson-name" type="text" class="input-free-lesson" ng-model="ngName" ng-disabled="errorMessage"
                                required>
                         <label for="input-free-lesson-phone">Номер мобільного телефону</label>
                         <input id="input-free-lesson-phone" type="text" class="input-free-lesson"
-                               ng-model="ngPhoneNumber" mask="+99 (999) 999 99 99" required>
+                               ng-model="ngPhoneNumber" mask="+99 (999) 999 99 99"  ng-disabled="errorMessage" required>
 
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn " ng-click="sendQuery()"
-                            style="background-color: #BE1C4D; color: white;" ng-disabled="freeLessonForm.$invalid">
+                            style="background-color: #BE1C4D; color: white;" ng-disabled="freeLessonForm.$invalid" ng-show="showSendPhoneButton">
                         Відправити заявку
+                    </button>
+                    <button type="button" class="btn " ng-click="closeDialog()"
+                            style="background-color: #BE1C4D; color: white;" ng-show="showCloseButton">
+                        Закрити
                     </button>
                 </div>
             </form>

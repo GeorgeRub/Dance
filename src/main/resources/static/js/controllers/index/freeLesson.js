@@ -3,6 +3,14 @@ angular.module('freeLesson', ['ngMask', 'ngSanitize']).controller('freeLessonCon
     $scope.ngName = "";
     $scope.errorMessage = "";
     $scope.successMessage = "";
+
+    $scope.showSendPhoneButton = true;
+    $scope.showCloseButton = false;
+
+    $scope.closeDialog = function(){
+        $('#testLesson').modal('toggle');
+    }
+
     $scope.sendQuery = function () {
         let data = new FormData();
         data.append('name', $scope.ngName);
@@ -23,13 +31,19 @@ angular.module('freeLesson', ['ngMask', 'ngSanitize']).controller('freeLessonCon
                 if(res.success){
                     $scope.errorMessage = "";
                     $scope.successMessage = "Наші оператори з вами зв'яжуться.";
+                    $scope.showSendPhoneButton = false;
+                    $scope.showCloseButton = true;
                 }else{
                     $scope.errorMessage = $sce.trustAsHtml(res.errorMessage);
                     $scope.successMessage = "";
+                    $scope.showSendPhoneButton = false;
+                    $scope.showCloseButton = true;
                 }
             },
             function (response) {
                 $scope.errorMessage = $sce.trustAsHtml(response.data.errorMessage);
+                $scope.showSendPhoneButton = false;
+                $scope.showCloseButton = true;
             }
         )
     }

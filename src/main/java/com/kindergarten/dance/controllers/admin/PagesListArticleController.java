@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.annotation.MultipartConfig;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,6 +57,7 @@ public class PagesListArticleController {
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
+//    @MultipartConfig(maxRequestSize = )
     public String savePage(@ModelAttribute Pages page, Model model,
                            @RequestParam("indexPhotoHtml") MultipartFile indexPhotoHtml,
                            @RequestParam("mainPhotoHtml") MultipartFile mainPhotoHtml,
